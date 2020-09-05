@@ -153,7 +153,7 @@
 
         p{
             line-height: 6rem;
-            font-family: var(--text_primary_Headers);
+            font-family: var(--text_paragraph);
             letter-spacing: .3rem;
 
             span{
@@ -180,6 +180,7 @@
     top: 7rem;
     display: flex;
     justify-content: center;
+    font-family: var(--text_paragraph);
 
     @media screen and (min-width: 1000px) {
         top: 14rem;

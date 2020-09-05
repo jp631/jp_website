@@ -42,7 +42,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <div className="menu"
+            <menu className="menu"
                 style={
                     {
                         display: "flex",
@@ -51,8 +51,7 @@ class Menu extends Component {
 
                     }
                 }
-            >
-                
+            >                
                 <div className="addCircle"
                     style={
                         {
@@ -68,7 +67,7 @@ class Menu extends Component {
                 <a href="a.com" className="menuIcons">
                     <FontAwesomeIcon icon={faHome} />
                 </a>
-                <a href="a.com" className="menuIcons">
+                <a href="#about" className="menuIcons">
                     <FontAwesomeIcon icon={faUser} />
                 </a>
                 <a href="a.com" className="menuIcons">
@@ -80,8 +79,8 @@ class Menu extends Component {
                 <a href="a.com" className="menuIcons">
                     <FontAwesomeIcon icon={faRss} />
                 </a>
-                    </Roll>
-            </div>
+                    </Roll>                        
+            </menu>
         );
     }
 }

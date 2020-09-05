@@ -46,8 +46,8 @@ componentDidMount(){
             <div className="home">
                 <div className="home-profilePhoto_container">
                     <div className="image">
-                        <a href="jerryprophete.com" alt="jerryprophete">
-                        <img src={profilePhoto} alt="jerry" title="Jerry Prophete" />
+                        <a href="www.jerryprophete.com" alt="jerry prophete">
+                        <img src={profilePhoto} alt="jerry's pic" title="Jerry Prophete" />
                         </a>
                     </div>
                 </div>

@@ -11,6 +11,7 @@
     font-size: 8rem;
     transition: right .2s cubic-bezier(.26,1.45,.87,-0.49);
     transition: flex-direction .1s .2s;
+    overflow-y: scroll;
 
     @media screen and (min-width: 1000px) {
        // flex-direction: row;
