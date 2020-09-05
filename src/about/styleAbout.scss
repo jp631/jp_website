@@ -31,7 +31,7 @@
     }
 
     .am {
-        position: absolute;
+        position: relative;
         margin: 4rem auto;
         text-align: center;
         font-size: 6rem;
@@ -39,6 +39,7 @@
         z-index: 5;
 
         @media screen and (min-width: 1000px) {
+            position: absolute;
             width: fit-content;
             position: absolute;
             top: 0;
