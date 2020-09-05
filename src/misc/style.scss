@@ -1,0 +1,311 @@
+.logo {
+    position: absolute;
+    top: 1.5rem;
+    left: 1rem;
+    display: block;
+    z-index: 1;
+    opacity: .7;
+}
+.icons {
+    z-index: 100;
+    font-size: 5rem;
+    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+  
+    a{ 
+        position: relative;
+        color: var(--first_color);
+        transition: transform .3s;
+
+        &:hover {
+            transform: scale(1.1);
+           // color: var(--fifth_color)
+        }
+    }
+
+     
+}
+
+.facebook:hover{
+    color: #4267B2;
+}
+.facebook::after {
+    position: absolute;
+    top: 5.5rem;
+    left: 0.5rem;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--sixth_color);
+    font-size: 5rem;
+}
+
+
+.istagram:hover{
+    color: #e95950;
+}
+.istagram::after {
+    position: absolute;
+    top: 5.5rem;
+    left: 1.1rem;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: white;
+    font-size: 5rem;
+}
+
+.twitter:hover{
+    color: #00acee;
+}
+
+.twitter::after {
+    position: absolute;
+    top: 5.5rem;
+    left: 0.6rem;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--third_color);
+    font-size: 5rem;
+}
+
+
+.youtube:hover{
+    color: #c4302b;
+}
+
+.youtube::after {
+    position: absolute;
+    top: 5.5rem;
+    left: 1.7rem;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--fifth_color);
+    font-size: 5rem;
+}
+
+.linkedIn:hover{
+    color: #0e76a8;
+}
+
+.linkedIn::after {
+    position: absolute;
+    top: 5.5rem;
+    left: 1rem;
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: var(--seventh_color);
+    font-size: 5rem;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 5rem;
+    width: 25rem;
+    box-shadow:  var(--primary_shadow);
+    backface-visibility: none;
+    transition: transform .3s;
+    
+   
+    
+
+    a{
+        text-decoration: none;
+        font-size: 5rem;
+
+        &:link, &:visited {
+            color: inherit;
+        }
+
+        &:hover{
+            color: var(--fifth_color);
+        }
+
+    }
+
+  &:hover{
+    transform: scaleX(1.1);  
+  }
+
+  &:active{
+      box-shadow: none;
+  }
+
+}
+
+.coloredCard_container {
+    position: relative;
+    width: 6rem;
+    height: 4rem;
+    border-radius: .2rem;
+    box-shadow:  var(--primary_shadow);
+}
+
+.circles_holders{
+    position: relative;
+    display: block;
+    z-index: 1600;
+    width: 10rem;
+    height: 10rem;
+    animation: spinAnimation 1s infinite linear;
+
+
+    .circles {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        background-color: blue;
+        margin: 2rem;
+        border: .1rem solid var(--first_color);
+    
+    }
+
+    .yellow_circle {
+            background-color: var(--sixth_color);
+            transform: translateX(-3.5rem);
+        }
+
+        .pink_circle{
+            background-color: var(--seventh_color);
+        }
+
+        .lightBlue_circle{
+            background-color: var(--fifth_color);
+            transform: translateY(3.5rem);
+
+        }
+
+        .white_circle{
+            transform: translate(-1.75rem, 1.75rem);
+            background-color: var(--second_color);
+        }
+
+        .blue_circle{
+            transform: translate(-3.5rem, 3.5rem);
+            background-color: var(--third_color);
+        }
+
+}
+
+// the 3 yellow card under bacgrounds
+.yellowCardNormal_container {
+    position: relative;
+    transform: translateX(-18rem);
+
+
+    .top{
+        position: absolute;
+        background-color: var(--sixth_color);
+        width: 35rem;
+        height:35rem;
+        transform: rotate(70deg);
+        z-index: 3;
+
+        @media screen and (min-width: 1000px) {
+            width: 35rem;
+            height:35rem;
+        }
+    }
+
+    .middle {
+        position: absolute;
+        left: 3rem;
+        top: -4rem;
+        background-color: var(--sixth_color);
+        width: 35rem;
+        height:35rem;
+        transform: rotate(80deg);
+        z-index: 2;
+        opacity: 0.5;
+
+        @media screen and (min-width: 1000px) {
+            width: 35rem;
+            height:35rem;
+        }
+    }
+    .down {
+        position: absolute;
+        left: 14rem;
+        top: 0rem;
+        background-color: var(--sixth_color);
+        width: 35rem;
+        height:35rem;
+        transform: perspective(400rem) rotate(80deg);
+        z-index: 1;
+        opacity: 0.5;
+
+        @media screen and (min-width: 1000px) {
+            left: 7rem;
+        }
+
+    }
+}
+
+.YellowCardShift_container {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    transform: rotate(-10deg);
+    
+    .top {
+    position: absolute;
+    top: 0;
+    right: 3rem;
+    width: 35rem;
+    height:35rem;
+    background-color: var(--sixth_color);
+    transform: perspective(100rem)  rotateY(75deg);
+    opacity: 0.5;
+
+
+    }
+
+    .middle {
+        position: absolute;
+        top: -3rem;
+        right: 0rem;
+        width: 35rem;
+        height:35rem;
+        background-color: var(--sixth_color);
+        transform: perspective(100rem)  rotateY(75deg);
+        opacity: 0.5;
+        }
+
+        .down {
+            position: absolute;
+            top: -6rem;
+            right: -3rem;
+            width: 35rem;
+            height:35rem;
+            background-color: var(--sixth_color);
+            transform: perspective(100rem)  rotateY(75deg);
+            opacity: 0.5;
+            }
+}
+
+// solo style and animation
+@keyframes spinAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform:scale(1.2);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}

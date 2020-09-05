@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+
+  // color variables
+  --first_color: #0D0D0D;   //dark
+  --second_color:  #EDEBF2; //white smoke
+  --third_color:  #514BF2; // blue
+  --fifth_color: #05AFF2; // light blue
+  --sixth_color: #F2B705; //yellow
+  --seventh_color: #F266DB; //pink
+
+  // text variables
+  --text_primary_Headers: 'Alegreya', serif; 
+  --text_secondary_Headers: 'Vollkorn', serif;
+  --text_paragraph: 'Playfair Display', serif;
+
+  //box shadow
+  --primary_shadow: 0rem .3rem .8rem  rgba(0, 0, 0, .7);
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+body{
+  display: block;
+  background-color: var(--second_color);
+  box-sizing: border-box;
+}
+
+#root {
+}

@@ -1,0 +1,170 @@
+.about_container {
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: fit-content;
+    top: 0rem;
+    color: var(--first_color);
+    z-index: 1;
+
+    .yellowCardNormal {
+        display: none;
+        position: fixed;
+        top: 10rem;
+        z-index: -1;
+    
+
+      @media screen and (min-width: 1000px) {
+       // top: 30rem;
+    }
+    }
+    .yellowCardShift {
+        position: fixed;
+        right: 0rem;
+        bottom: 33rem;
+        z-index: -1;
+        background-color: red;
+
+        @media screen and (min-width: 1000px) {
+         //   top: 20rem;
+        }
+    }
+
+    .am {
+        position: absolute;
+        margin: 4rem auto;
+        text-align: center;
+        font-size: 6rem;
+        width: 100%;
+        z-index: 5;
+
+        @media screen and (min-width: 1000px) {
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 2rem;
+        }
+
+        span{
+            background-color: var(--fifth_color);
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+    }
+    .paragraphs_container {
+        @media screen and (min-width: 1000px) {
+           width: 60%;
+           height: fit-content;
+        }
+    }
+
+    .skills_container {
+        @media screen and (min-width: 1000px) {
+            float: right;
+            width: 60%;
+        }
+    }
+
+    .development_container {
+        @media screen and (min-width: 1000px) {
+            width: 60%;
+            height: fit-content;
+        }
+    }
+
+    .parapgrah {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        z-index: 400;
+
+
+
+        h1{
+            width: 100%;
+            font-size: 5rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        p{
+            font-size: 3rem;
+            text-align: justify;
+            justify-content: center;
+            align-content: center;
+            margin: 1rem 5rem;
+        }
+    }
+
+    ul{
+         display: flex;
+          font-size: 3rem;
+          text-align: justify;
+          justify-content: center;
+          flex-wrap: wrap;
+         margin: 3rem auto;
+         transform: translateX(-5%);
+
+
+        li{
+            width: 100%;
+            text-align: center;
+            position: relative;
+            list-style: none;
+            margin: 0.5rem;
+
+            &::before{
+                content: " \261E";
+                font-size: 2.7rem;
+                position: relative;
+                color: black;
+                top: 0;
+                left: 0;
+                margin-right: 0.5rem;
+                color: var(--fifth_color);
+            }
+        }
+
+
+
+    }
+
+    .brands {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-size: 6rem;
+        color: red;
+        margin: 1rem;
+
+    .react{
+        color: #61DBFB;
+    } 
+    .sass{
+        color: #F266DB;
+
+    }
+     .html5{
+        color: #E44D26;
+
+     } 
+     .js{
+        color: #F0DB4F;
+
+     } 
+     .wordpress{
+        color: #000000;
+
+     }
+      .node{
+        color: #3C873A;
+
+      }
+
+    }
+
+    @media screen and (min-width: 1000px) {
+
+    }
+}
