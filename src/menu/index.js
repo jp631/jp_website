@@ -7,11 +7,11 @@ import Roll from "react-reveal/Roll";
 
 
 class Menu extends Component {
-        constructor(){
-            super();
+        constructor(props){
+            super(props);
             this.state = {
                 isMenuVisible: false,
-                isMobile: false,
+                isMobile: props.isMobile,
             }
         }
 
@@ -21,23 +21,8 @@ class Menu extends Component {
             })
     }
 
-    checkMobile = ()=> {
-        if(window.innerWidth < 1000) {
-            this.setState({
-                isMobile: true,
-            }
-            );
-        }else{
-            this.setState({
-                isMobile: false,
-            }
-            );
-        }
-    }
-
     componentDidMount(){
-        window.onresize = this.checkMobile;
-        window.onload = this.checkMobile;
+      
     }
 
     render() {
@@ -64,19 +49,19 @@ class Menu extends Component {
                     </div>
                 </div>
                 <Roll left cascade>
-                <a href="a.com" className="menuIcons">
+                <a href="#home" className="menuIcons">
                     <FontAwesomeIcon icon={faHome} />
                 </a>
                 <a href="#about" className="menuIcons">
                     <FontAwesomeIcon icon={faUser} />
                 </a>
-                <a href="a.com" className="menuIcons">
+                <a href="#portfolio" className="menuIcons">
                     <FontAwesomeIcon icon={faBriefcase} />
                 </a>
-                <a href="a.com" className="menuIcons">
+                <a href="#contact" className="menuIcons">
                     <FontAwesomeIcon icon={faIdCard} />
                 </a>
-                <a href="a.com" className="menuIcons">
+                <a href="#blog" className="menuIcons">
                     <FontAwesomeIcon icon={faRss} />
                 </a>
                     </Roll>                        

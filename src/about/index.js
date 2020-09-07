@@ -2,19 +2,19 @@ import React from 'react';
 import "./styleAbout.scss";
 import ParagraphBlock from "./paragraphBlock";
 import { YellowCardNormal, YellowCardShift } from "../misc";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faTools, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faSass, faHtml5, faJs, faWordpress, faNode } from '@fortawesome/free-brands-svg-icons'
 import { ColoredCards } from "../misc";
 import Zoom from "react-reveal/Zoom";
 
-const About = () => {
+const About = (props) => {
     const Allbrands = [faReact,faSass, faHtml5, faJs, faWordpress, faNode];
     
 
     return (
         <div className="about_container" id="about">
              <h1 className="am"><span>Am I</span> the Guy?</h1>
+             <Zoom left delay={1000}>
                 <div className="paragraphs_container">
                    <ParagraphBlock 
                         title = "About Me"
@@ -25,7 +25,8 @@ const About = () => {
                             experience that can solve your website problems."
                    />
                 </div>
-
+                 </Zoom>
+                    <Zoom right delay={1000}>
                 <div className="skills_container">
                    <ParagraphBlock 
                         title = "Skills"
@@ -37,7 +38,8 @@ const About = () => {
                         brands={Allbrands}
                    />
                 </div>
-
+                </Zoom>
+                <Zoom left delay={1000}> 
                 <div className="development_container">
                    <ParagraphBlock 
                         title = "Development"
@@ -51,18 +53,20 @@ const About = () => {
                         }
                    />
                 </div>
+                </Zoom>
                    
-                <div className="colored_section" style={{top: "5rem"}}>   
+                <div className="colored_section" style={{top: "0rem"}}>   
                     <ColoredCards color="var(--first_color)" />
                     <ColoredCards color="var(--seventh_color)" />
                     <ColoredCards color="var(--fifth_color)" />
                 </div>
             
-                 <div className="yellowCardNormal" >
+                 <div className="yellowCardNormal"   style={{opacity: (props.appState === "about") ?  "1" : "0",}}  >
                      <YellowCardNormal />
                    </div>
                    
-                   <div className="yellowCardShift">
+                   <div className="yellowCardShift" style={{
+                       opacity: (props.appState === "about") ?  "1" : "0",  }}>
                    <YellowCardShift />
                   </div> 
                    

@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import {  } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
-
 import logo from "../images/logo/logoBrand.png";
 
 import "./style.scss";
@@ -46,9 +46,10 @@ export const Buttons = (props) => {
                 {
                     backgroundColor: props.backColor,
                     color: props.color,
-                }
-            }>
-            <a href={props.link} title="click">
+                    width: (props.width) ? props.width : "25rem",
+                    height: (props.height) ? props.height : "auto"
+                }}>
+            <a href={props.link} title="click" style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
                 {props.text}
             </a>
         </div>
@@ -58,11 +59,11 @@ export const Buttons = (props) => {
 export const ColoredCards = (props) => {
     return (
         <Zoom left>
-        <div className="coloredCard_container"
-            style={{
-                backgroundColor: props.color
-            }}>
-        </div>
+            <div className="coloredCard_container"
+                style={{
+                    backgroundColor: props.color
+                }}>
+            </div>
         </Zoom>
     );
 }
@@ -81,22 +82,21 @@ export const ColoredCircle = () => {
 
 export const YellowCardNormal = () => {
     return (
-        <Fade>
-        <div className="yellowCardNormal_container">
-            <div className="top">
+            <div className="yellowCardNormal_container">
+                <div className="top">
+                </div>
+                <div className="middle">
+                </div>
+                <div className="down">
+                </div>
             </div>
-            <div className="middle">
-            </div>
-            <div className="down">
-            </div>
-        </div>
-    </Fade>
+        
     );
 };
 
 export const YellowCardShift = () => {
     return (
-        <Zoom right delay="2000" opposite>
+        <Zoom right opposite>
             <div className="YellowCardShift_container">
                 <div className="top">
                 </div>
@@ -109,5 +109,37 @@ export const YellowCardShift = () => {
     );
 };
 
+export const ProjectCard = (props) => {
+    return (
+        <Tilt className="Tilt" option={{ max: 25, perspective: 1000, scale: 1, speed: 300, reset: true }}>
+            <div className="projectCard">
+                <div className="firstRec"></div>
+                <Tilt>
+                    <div className="secondRec">
+                        <h1>{props.name}</h1>
+                        <a href={props.link} alt={props.name}>
+                            <img src={props.image} alt="props.name" title="props.name" />
+                        </a>
+                    </div>
+                </Tilt>
+                <Tilt>
+                    <div className="thirdRec">
+                        <p>
+                            {props.text}
+                        </p>
+                        <Buttons
+                            link={props.link}
+                            text="Seet it"
+                            backColor="var(--sixth_color)"
+                            width="60%"
+                            textSize="3rem"
+                            color="var(--first_color)" />
+                    </div>
+                </Tilt>
+            </div>
+        </Tilt>
+
+    )
+}
 
 // function declaring 

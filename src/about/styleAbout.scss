@@ -1,14 +1,13 @@
 .about_container {
     position: relative;
     display: block;
-    width: 100vw;
+    width: 100%;
     height: fit-content;
     top: 0rem;
     color: var(--first_color);
     z-index: 1;
 
     .yellowCardNormal {
-        display: none;
         position: fixed;
         top: 10rem;
         z-index: -1;
@@ -24,6 +23,7 @@
         bottom: 33rem;
         z-index: -1;
         background-color: red;
+        transition: opacity .3s;
 
         @media screen and (min-width: 1000px) {
          //   top: 20rem;

@@ -16,6 +16,7 @@
     "react-particles-js": "^3.3.0",
     "react-reveal": "^1.2.2",
     "react-scripts": "3.4.3",
+    "react-tilt": "^0.1.4",
     "react-tsparticles": "^1.17.10",
     "sass": "^1.26.10"
   },

@@ -113,19 +113,17 @@
     justify-content: center;
     align-content: center;
     border-radius: 5rem;
-    width: 25rem;
     box-shadow:  var(--primary_shadow);
     backface-visibility: none;
     transition: transform .3s;
     font-family: var(--text_secondary_headers);
+    cursor: pointer;
     
    
     
 
     a{
         text-decoration: none;
-        font-size: 5rem;
-
 
         &:link, &:visited {
             color: inherit;
@@ -138,11 +136,14 @@
     }
 
   &:hover{
-    transform: scaleX(1.1);  
+    transform: scaleX(1.1);
+    filter: brightness(1.2);
+
   }
 
   &:active{
       box-shadow: none;
+      filter: brightness(1.2);
   }
 
 }
@@ -296,6 +297,96 @@
             transform: perspective(100rem)  rotateY(75deg);
             opacity: 0.5;
             }
+}
+
+
+.Tilt{
+    margin: 5rem 2rem;
+    width: auto;
+    position: relative;
+}
+.projectCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .firstRec {
+        position: absolute;
+        width: 24rem;
+        height: 18rem;
+        border: .2rem solid var(--sixth_color);
+        border-radius: 4rem;
+        box-shadow: var(--primary_shadow);
+
+    }
+
+
+    .secondRec {
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+        width: 19rem;
+        height: 13rem;
+        border: .2rem solid var(--seventh_color);
+        border-radius: 4rem;
+        box-shadow: var(--primary_shadow);
+
+
+        h1 {
+            position: absolute;
+            top: -4.5rem;
+            font-size: 3rem;
+            text-align: center;
+            width: 100%;
+            font-family: var(--text_Headers);
+        }
+
+        a {
+        }
+
+        img {    
+            width: 100%;
+            height: 13rem;
+           object-fit: cover;
+           border-radius: 4rem;
+          image-rendering: pixelated;
+
+        }
+    }
+
+    .thirdRec {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        top: 2rem;
+        left: 0rem;
+        width: 20rem;
+        height: 19rem;
+        border: .2rem solid var(--fifth_color);
+        border-radius: 4rem;
+        background-color: var(--second_color);
+        box-shadow: var(--primary_shadow);
+
+        p{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            border-radius: 4rem;
+            font-family: var(--text);
+            margin: 1rem 0.5rem;
+        }
+        .buttons {
+            position: absolute;
+            bottom: 1rem;
+        }
+    }
 }
 
 // solo style and animation
