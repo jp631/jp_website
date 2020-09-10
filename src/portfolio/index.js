@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faArrowAltCircleDown, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { ProjectCard, Showframe } from "../misc";
+import { ProjectCard, Showframe, ColoredCards } from "../misc";
 import "./portfolio.scss";
 import Zoom from "react-reveal/Zoom";
 import Bounce from "react-reveal/Bounce";
@@ -18,26 +18,26 @@ class Porfolio extends Component {
                     name: "Trillio",
                     image: "trillio",
                     link: "https://jp631.github.io/trillo/",
-                    text: "This is about hiking project for a business. Anyone who like to hike can go to the website."
+                    text: "This hotel website was built during my academic school year, and it was build using html and sass."
                 },
                 {
                     name: "Nexter",
                     image: "nexter",
                     link: "https://jp631.github.io/myNexter/",
-                    text: "This is about hiking project for a business. Anyone who like to hike can go to the website."
+                    text: "This website is a realtor website, and it was build with html and css. It was a great experience building this website"
 
                 },
                 {
                     name: "Paint",
                     image: "paint",
                     link: "https://jp631.github.io/Paint/",
-                    text: "This is about hiking project for a business. Anyone who like to hike can go to the website."
+                    text: "Who would not like to build a paint application. User can use many diffrent brushes. Please check it out"
                 },
                 {
                     name: "My Natour",
                     image: "natour",
                     link: "https://jp631.github.io/myNatours/",
-                    text: "This is about hiking project for a business. Anyone who like to hike can go to the website."
+                    text: "This is an eCommerce website for hiking.It is a great outdoor activities that anyone should enjoy."
                 }
             ]
 
@@ -75,7 +75,21 @@ class Porfolio extends Component {
                     <h1 className="title">Porfolio <span><FontAwesomeIcon icon={faBriefcase} /></span></h1>
                 </Bounce>
                 <Bounce>
-                    <p className="p1"> Below are the four most recent projects that I have worked on. Once you click on "See it" a window will open to show you the project. The window can be close by clicking on the yellow x above the window.</p>
+                    <p className="p1"> Below are the four most recent projects that I have worked on during my acamemmic school year. Please be aware that I did not come up with those desings myself. Please click on more to see those designs that I build myself. If you click on "See it" button, a window will popup to show you the project. The window can be close by clicking on the yellow x above the window.</p>
+                    <ColoredCards           
+                            position="absolute"
+                            top="-17rem"
+                            right="-55rem"
+                            width="20rem"
+                            color="var(--third_color)"
+                    />
+                         <ColoredCards           
+                            position="absolute"
+                            top="-17rem"
+                            left="-55rem"
+                            width="20rem"
+                            color="var(--third_color)"
+                    />
                 </Bounce>
                 <div className="projectCard_holder">
                     <Zoom right delay={500}>
@@ -104,7 +118,7 @@ class Porfolio extends Component {
 
                     </Zoom>
                 </div>
-                <Zoom delay={2500}>
+                <Zoom delay={500}>
                     <a href="#home" className="seeMore">
                         <p> See More </p>  <FontAwesomeIcon icon={faArrowAltCircleDown} />
                     </a>

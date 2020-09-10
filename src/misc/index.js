@@ -44,6 +44,8 @@ export const Buttons = (props) => {
         <div className="buttons"
             style={
                 {
+                    position: props.position,
+                    top: props.top,
                     backgroundColor: props.backColor,
                     color: props.color,
                     width: (props.width) ? props.width : "25rem",
@@ -61,7 +63,19 @@ export const ColoredCards = (props) => {
         <Zoom left>
             <div className="coloredCard_container"
                 style={{
-                    backgroundColor: props.color
+                    backgroundColor: props.color,
+                    zIndex: (props.zindex) ? props.zindex : "",
+                    width: (props.width) ? props.width : "",
+                    height: (props.height) ? props.height : "",
+                    position: (props.position) ? props.position : "",
+                    top: (props.top) ? props.top : "",
+                    right: (props.right) ? props.right : "",
+                    left: (props.left) ? props.left : "",
+                    bottom: (props.bottom) ? props.bottom : "",
+                    boxShadow: (props.shadow) ? props.shadow : ""
+
+
+
                 }}>
             </div>
         </Zoom>
@@ -169,6 +183,8 @@ export const ProjectCard = (props) => {
                             textSize="3rem"
                             color="var(--first_color)"
                             click={props.click}
+                            top="6rem"
+                            position="relative"
                         />
 
                     </div>

@@ -14,7 +14,7 @@ const About = (props) => {
     return (
         <div className="about_container" id="about">
              <h1 className="am"><span>Am I</span> the Guy?</h1>
-             <Zoom left delay={1000}>
+             <Zoom left delay={500}>
                 <div className="paragraphs_container">
                    <ParagraphBlock 
                         title = "About Me"
@@ -26,7 +26,7 @@ const About = (props) => {
                    />
                 </div>
                  </Zoom>
-                    <Zoom right delay={1000}>
+                    <Zoom right delay={500}>
                 <div className="skills_container">
                    <ParagraphBlock 
                         title = "Skills"
@@ -39,7 +39,7 @@ const About = (props) => {
                    />
                 </div>
                 </Zoom>
-                <Zoom left delay={1000}> 
+                <Zoom left delay={500}> 
                 <div className="development_container">
                    <ParagraphBlock 
                         title = "Development"

@@ -34,10 +34,24 @@
         position: relative;
         margin: 4rem auto;
         text-align: center;
-        font-size: 6rem;
+        font-size: 5.5rem;
         width: 100%;
         z-index: 5;
         font-family: var(--text_Headers);
+
+        &::after{
+            content: "";
+            background: linear-gradient(90deg, rgba(242,102,219,1) 0%, rgba(242,183,5,1) 48%, rgba(5,175,242,1) 100%);
+            position: absolute;
+            bottom: .8rem;
+            left: 0;
+            width: 95%;
+            height: 3rem;
+            z-index: -1;
+            border-top-left-radius: 10rem;
+            border-bottom-right-radius: 10rem;
+
+        }
 
         @media screen and (min-width: 1000px) {
             position: absolute;
@@ -46,10 +60,7 @@
             right: 2rem;
         }
 
-        span{
-            background-color: var(--fifth_color);
-            border-radius: 0.5rem;
-            }
+        
     }
     .paragraphs_container {
         @media screen and (min-width: 1000px) {
@@ -102,29 +113,33 @@
     ul{
          display: flex;
           font-size: 3rem;
-          text-align: justify;
           justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
-         margin: 3rem auto;
-         transform: translateX(-5%);
+         margin: 2rem auto;
 
         li{
+            display: flex;
             width: 100%;
-            text-align: center;
+           // text-align: left;
             position: relative;
             list-style: none;
             margin: 0.5rem;
             font-family: var(--text_paragraph);
             letter-spacing: .2rem;
 
+            @media screen and (min-width: 1000px) {
+              margin-left: 3rem;
+            }
+
 
             &::before{
-                content: " \261E";
-                font-size: 2.7rem;
                 position: relative;
+               content: " \261E";
+                font-size: 2.7rem;
                 color: black;
-                top: 0;
-                left: 0;
+                left: 0rem;
+                top: .2rem;
                 margin-right: 0.5rem;
                 color: var(--fifth_color);
             }
