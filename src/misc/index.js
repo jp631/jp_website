@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import {  } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
@@ -49,7 +49,7 @@ export const Buttons = (props) => {
                     width: (props.width) ? props.width : "25rem",
                     height: (props.height) ? props.height : "auto"
                 }}>
-            <a href={props.link} title="click" style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
+            <a title={props.link} onClick={props.click} style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
                 {props.text}
             </a>
         </div>
@@ -82,15 +82,15 @@ export const ColoredCircle = () => {
 
 export const YellowCardNormal = () => {
     return (
-            <div className="yellowCardNormal_container">
-                <div className="top">
-                </div>
-                <div className="middle">
-                </div>
-                <div className="down">
-                </div>
+        <div className="yellowCardNormal_container">
+            <div className="top">
             </div>
-        
+            <div className="middle">
+            </div>
+            <div className="down">
+            </div>
+        </div>
+
     );
 };
 
@@ -109,7 +109,36 @@ export const YellowCardShift = () => {
     );
 };
 
+export const Showframe = (props) => {
+    return (
+        <div className="iframe_container"
+            style={{
+                display: (props.display) ? "block" : "none"
+                }}
+        >
+            <div className="closeIcon" title="close">
+                <FontAwesomeIcon icon={faTimesCircle} onClick={props.clickToClose}/>
+            </div>
+            <iframe key={props.key} className="frame"
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                    borderRadius: ".5rem",
+                    transition: "all .3s",
+
+                }}
+                src={props.link}
+            >
+                <a>visit this link</a>
+            </iframe>
+            
+        </div>
+    )
+}
+
 export const ProjectCard = (props) => {
+
     return (
         <Tilt className="Tilt" option={{ max: 25, perspective: 1000, scale: 1, speed: 300, reset: true }}>
             <div className="projectCard">
@@ -119,8 +148,13 @@ export const ProjectCard = (props) => {
                         <h1>{props.name}</h1>
                         <a href={props.link} alt={props.name}>
                             <img src={props.image} alt="props.name" title="props.name" />
+                            <div className="screen">
+                        </div>
+                        <p>click here to see the project in a new window</p>
                         </a>
+                        
                     </div>
+
                 </Tilt>
                 <Tilt>
                     <div className="thirdRec">
@@ -133,7 +167,10 @@ export const ProjectCard = (props) => {
                             backColor="var(--sixth_color)"
                             width="60%"
                             textSize="3rem"
-                            color="var(--first_color)" />
+                            color="var(--first_color)"
+                            click={props.click}
+                        />
+
                     </div>
                 </Tilt>
             </div>

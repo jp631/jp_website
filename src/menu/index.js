@@ -7,65 +7,135 @@ import Roll from "react-reveal/Roll";
 
 
 class Menu extends Component {
-        constructor(props){
-            super(props);
-            this.state = {
-                isMenuVisible: false,
-                isMobile: props.isMobile,
+    constructor() {
+        super();
+        this.state = {
+            isMobile: false,
+            scrollNum: 0,
+            scrollOn: false,
+            isMobileMenuVisible: false,
+            isDesktopMenu: false,
+            style: {
+                mobileStyle: {
+                    menu: "menu_mobile",
+                    circle: "addCircleMobile"
+                },
+                desktopStyle: {
+                    menu: "menu_desktop"
+                }
             }
         }
+    }
 
-        toggleMenu = ()=> {
+    toggleMenu = () => {
+        this.setState({
+            isMobileMenuVisible: (!this.state.isMobileMenuVisible) ? true : false,
+        })
+    }
+    //close the mobile menu on some other ocasion like a click
+    closeMobileMenu = () => {
+        setTimeout(() => {
             this.setState({
-                isMenuVisible: (!this.state.isMenuVisible) ? true : false
+                isMobileMenuVisible: false,
             })
+        }, 300)
     }
 
-    componentDidMount(){
-      
+    //to close the menu when sroll is at the top
+    closeMenuOnScroll = () => {
+        if (!this.state.scrollOn && !this.state.isMobile) {
+            this.setState({
+                isMobileMenuVisible: false,
+                isDesktopMenu: false,
+            })
+        }
     }
+
+    checkScroll = () => {
+        this.setState({
+            scrollNum: window.scrollY,
+            scrollOn: (window.scrollY > 400) ? true : false
+        })
+        console.log(this.state.scrollNum)
+    }
+
+    checkIfMobile = () => {
+        this.setState(
+            {
+                isMobile: (window.innerWidth < 1000) ? true : false
+            }
+        )
+        console.log(`mobile in check: ${this.state.isMobile}`);
+    }
+
+    
+
+    componentWillMount() {
+        this.checkIfMobile();
+        this.checkScroll();
+
+    }
+
 
     render() {
+        const { isMobileMenuVisible, isMobile, style, scrollNum, scrollOn } = this.state;
+        window.onload = () => {
+            this.checkIfMobile();
+             this.checkScroll();
+        }
+        window.onscroll = () => {
+            this.checkScroll();
+            this.closeMenuOnScroll();
+            //  console.log(scrollNum);
+        }
+        window.onresize = () => {
+            this.checkIfMobile();
+            this.checkScroll();
+            console.log(`mobile: ${this.state.isMobile}`);
+        }
         return (
-            <menu className="menu"
-                style={
-                    {
-                        display: "flex",
-                        flexDirection: (this.state.isMobile && this.state.isMenuVisible) ? "column" : "row",
-                         right: (this.state.isMenuVisible) ? "0" : "-35rem",
+            <>
+                <menu className={`menu ${(isMobile || (!isMobile && scrollOn)) ? style.mobileStyle.menu : style.desktopStyle.menu}`}
+                    style={{
+                        width: "15rem",
+                        right: ((isMobileMenuVisible && isMobile) || (scrollOn && isMobileMenuVisible)) ? "0" : "-25rem",
+                        transition: ((isMobile) || (!isMobile && scrollOn)) ? "all .5s cubic-bezier(.26,1.45,.87,-0.49), top 0s" : "all .5s cubic-bezier(.26,1.45,.87,-0.49), top 0s, background .0s",
+                        backgroundColor: ((isMobile) || (!isMobile && scrollOn)) ? "var(--fifth_color)" : "transparent"
+                    }}
 
-                    }
-                }
-            >                
-                <div className="addCircle"
-                    style={
-                        {
-                            right: (this.state.isMenuVisible) ? "20rem" : "0",
-                        }
-                    }>
+                >
+
+                    <Roll left cascade>
+                        <a href="#home" className="menuIcons" onClick={() => { this.closeMobileMenu() }}>
+                            <FontAwesomeIcon icon={faHome} />
+                        </a>
+                        <a href="#about" className="menuIcons" onClick={this.closeMobileMenu}>
+                            <FontAwesomeIcon icon={faUser} />
+                        </a>
+                        <a href="#portfolio" className="menuIcons" onClick={this.closeMobileMenu}>
+                            <FontAwesomeIcon icon={faBriefcase} />
+                        </a>
+                        <a href="#blog" className="menuIcons" onClick={this.closeMobileMenu}>
+                            <FontAwesomeIcon icon={faRss} />
+                        </a>
+                        <a href="#contact" className="menuIcons" onClick={this.closeMobileMenu}>
+                            <FontAwesomeIcon icon={faIdCard} />
+                        </a>
+                    </Roll>
+                </menu>
+                <div className={(isMobile || scrollOn) ? this.state.style.mobileStyle.circle : ""}
+                    style={{
+                        display: (isMobile || scrollOn) ? "block" : "none",
+                        right: (isMobileMenuVisible) ? "15.5rem" : "0"
+                    }}
+                >
                     <ColoredCircle />
-                    <div className="circle_cover" onClick={this.toggleMenu}>
+                    {/** that div cover the 3 circle and I use it to do the click */}
+                    <div className="circle_cover"  onClick={this.toggleMenu}>
 
                     </div>
                 </div>
-                <Roll left cascade>
-                <a href="#home" className="menuIcons">
-                    <FontAwesomeIcon icon={faHome} />
-                </a>
-                <a href="#about" className="menuIcons">
-                    <FontAwesomeIcon icon={faUser} />
-                </a>
-                <a href="#portfolio" className="menuIcons">
-                    <FontAwesomeIcon icon={faBriefcase} />
-                </a>
-                <a href="#contact" className="menuIcons">
-                    <FontAwesomeIcon icon={faIdCard} />
-                </a>
-                <a href="#blog" className="menuIcons">
-                    <FontAwesomeIcon icon={faRss} />
-                </a>
-                    </Roll>                        
-            </menu>
+            </>
         );
     }
 }

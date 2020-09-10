@@ -13,64 +13,63 @@ import "./App.scss";
 class App extends Component {
   constructor() {
     super();
-      this.state = {
-          device: window.screenTop,
-          isMobile: false,
-          scroll_position: window.scrollY,
-          trackPage: "home"
-      }
+    this.state = {
+      device: window.screenTop,
+      isMobile: false,
+      scroll_position: window.scrollY,
+      trackPage: "home",
+    }
   }
 
-  checkIfMobile = ()=>{
-    if(window.innerWidth < 1000 || this.state.scroll_position > 10) {
+  checkIfMobile = () => {
+    if (window.innerWidth < 1000) {
       this.setState({
         isMobile: true,
       });
+    }
   }
-}
 
-checkScrollLevel = ()=>{
-  this.setState({
-    scroll_position: window.scrollY,
-  })
-}
-
-checkTrackPage = ()=> {
-  if(this.state.scroll_position < 516){
+  checkScrollLevel = () => {
     this.setState({
-      trackPage: "home"
-    })} else if(this.state.scroll_position > 516 && this.state.scroll_position < 1500){
-    this.setState({
-      trackPage: "about"
+      scroll_position: window.scrollY,
     })
-    console.log(`about ${this.state.scroll_position}`);
-  }else  if(this.state.scroll_position > 1500 && this.state.scroll_position < 2500){
-    this.setState({
-      trackPage: "portfolio"
-    })
-    console.log(`portfolio ${this.state.scroll_position}`);
   }
-}
 
-  componentDidMount = ()=>{
-   
-    window.onload = ()=>{
+  checkTrackPage = () => {
+    if (this.state.scroll_position < 516) {
+      this.setState({
+        trackPage: "home"
+      })
+    } else if (this.state.scroll_position > 516 && this.state.scroll_position < 1500) {
+      this.setState({
+        trackPage: "about"
+      })
+    } else if (this.state.scroll_position > 1500 && this.state.scroll_position < 2500) {
+      this.setState({
+        trackPage: "portfolio"
+      })
+    }
+  }
+
+  componentDidMount = () => {
+    this.checkIfMobile();
+    window.onload = () => {
       this.setState({
         device: document.querySelector(".app"),
       });
-      console.log(this.state.device);
+      this.checkIfMobile();
+      console.log(`app mobile; ${this.state.isMobile}`);
+    }
+
+    window.onresize = () => {
       this.checkIfMobile();
     }
 
-    window.onscroll = ()=> {
+    window.onscroll = () => {
       this.checkScrollLevel();
       this.checkTrackPage();
-    console.log(`scroll position ${this.state.scroll_position}`);
-    console.log(`device ${this.state.device.scrollTop}`);
-
     }
 
-   console.log(this.state.scroll_position);
   }
 
 
@@ -78,45 +77,16 @@ checkTrackPage = ()=> {
     return (
       <div className="app">
         <Logo />
-          <div className="menu_container">
-            <Menu isMobile={this.state.isMobile} scroll = {this.state.scroll_position}/>
-          </div>
-
         <Home />
-        <About appState = {this.state.trackPage} />
+        <About appState={this.state.trackPage} />
         <Porfolio />
+
+        <div className="menu_container">
+          <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
+        </div>
       </div>
     );
   }
 }
 
 export default App;
-
-
-//later use
-/**
- *   constructor (props) {
-    super();
-    this.state ={
-      style: {
-        width: `${window.innerWidth}px`,
-        backgroundColor: 'blue'
-      }
-    }
-  }
-
-  componentDidMount(){
-    const resize = ()=> {
-      this.setState(
-       { style: {
-          width: `${window.innerWidth}px`,
-          backgroundColor: 'red'
-        }
-      }
-      );
-    }
-
-    window.onresize = resize;
-  }
-
- */

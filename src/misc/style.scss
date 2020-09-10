@@ -205,6 +205,7 @@
 
 // the 3 yellow card under bacgrounds
 .yellowCardNormal_container {
+    display: none;
     position: relative;
     transform: translateX(-18rem);
 
@@ -258,6 +259,7 @@
 }
 
 .YellowCardShift_container {
+    display: none;
     position: absolute;
     top: 0rem;
     right: 0rem;
@@ -300,6 +302,37 @@
 }
 
 
+.iframe_container{
+    background-color: blue;
+    position: fixed;
+    top: 14rem;
+    //left: 50%;
+   transform: translateX(-50%);
+    width: 80%;
+    height: 70vh;
+     border: .1rem solid var(--first_color);
+     z-index: 1000;
+     box-shadow: var(--primary_shadow);
+     border-radius: .5rem;
+     transition: all .3s;
+
+    .closeIcon{
+        font-size: 3rem;
+        position: absolute;
+        right: 2rem;
+        top: -4rem;
+        color: var(--sixth_color);
+        transition: all .3s;
+
+        &:hover{
+            transform: scale(1.5);
+            cursor: pointer;
+            color: red;
+
+        }
+    }
+}
+
 .Tilt{
     margin: 5rem 2rem;
     width: auto;
@@ -328,12 +361,53 @@
         position: relative;
         top: 0rem;
         left: 0rem;
-        width: 19rem;
+        width: 20rem;
         height: 13rem;
         border: .2rem solid var(--seventh_color);
-        border-radius: 4rem;
+        border-radius: .5rem;
         box-shadow: var(--primary_shadow);
 
+        .screen{
+            position: absolute;
+            top: 0;
+            left: 0;
+          width: 0%;
+          opacity: 0;
+          height: 100%;
+          border-radius: .1rem;
+            background-color: rgba(13, 13, 13, 0.8);
+             transition: all .2s;
+             background-position: center;
+             object-fit: fill;
+
+
+        }
+
+        &:hover .screen{
+                opacity: 1;
+                width: 100%;
+        }
+
+        p{
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            flex-wrap: wrap;   
+            color: var(--second_color);
+            transition: all .2s .4s ease-out;
+            opacity: 0;
+        }
+
+        &:hover p{
+            opacity: 1;
+
+    }
 
         h1 {
             position: absolute;
@@ -351,7 +425,7 @@
             width: 100%;
             height: 13rem;
            object-fit: cover;
-           border-radius: 4rem;
+         //  border-radius: .2rem;
           image-rendering: pixelated;
 
         }
@@ -365,10 +439,10 @@
         position: relative;
         top: 2rem;
         left: 0rem;
-        width: 20rem;
+        width: 21rem;
         height: 19rem;
         border: .2rem solid var(--fifth_color);
-        border-radius: 4rem;
+      border-radius: .5rem;
         background-color: var(--second_color);
         box-shadow: var(--primary_shadow);
 
@@ -378,7 +452,7 @@
             width: 100%;
             text-align: center;
             font-size: 2rem;
-            border-radius: 4rem;
+            border-radius: .5rem;
             font-family: var(--text);
             margin: 1rem 0.5rem;
         }
