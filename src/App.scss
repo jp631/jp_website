@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;700&display=swap');
 
 .app {
-    position: absolute;
-    min-width: 400px;
-    width: 100%;
+    position: relative;
+    min-width: 350px;
+    max-width: 2750px;
+     width: 100%;
     box-sizing: border-box;
     background-color: var(--second_color);
     overflow-x: hidden;
 
-    @media screen and (min-width: 1000px) { 
-       overflow-x: visible;
-    }
+
+     @media screen and (min-width: 2750px) {
+         border: 1rem solid var(--second_color);
+         box-shadow: var(--primary_shadow);
+         }
 }
 
-
-  
 

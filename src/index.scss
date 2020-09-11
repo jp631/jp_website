@@ -28,13 +28,25 @@
 }
 html {
   font-size: 62.5%;
+
+  @media screen and (min-width: 1600px) { 
+    font-size: 90%;
+ }
+
+ @media screen and (min-width: 2000px) { 
+  font-size: 95%;
 }
 
+@media screen and (min-width: 2400px) { 
+  font-size: 100%;
+}
+
+}
+
+
 body{
-  display: block;
   background-color: var(--second_color);
   box-sizing: border-box;
-  overflow-x: hidden;
 
 
   &::-webkit-scrollbar {
@@ -59,6 +71,13 @@ body{
       background-color: var(--fifth_color);
       cursor: grab;
 
+    }
+
+    @media screen and (min-width: 2750px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
 }

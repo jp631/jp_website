@@ -6,9 +6,10 @@ class Particle extends Component {
         return (
             <div>
                 <Particles
+                   width="100vw"
+                   height="80rem"
                     id="app"
                     options={{
-                    
                         fpsLimit: 60,
                         interactivity: {
                             detectsOn: "",

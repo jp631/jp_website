@@ -202,9 +202,9 @@
 
 .particlesAnimation {
     position: absolute;
-    z-index: 0.5;
+    z-index: -1;
     width: 100%;
-    height: 100vh;
+    height: 25rem;
     opacity: 0.5;
 }
 

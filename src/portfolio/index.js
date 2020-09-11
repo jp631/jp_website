@@ -75,7 +75,7 @@ class Porfolio extends Component {
                     <h1 className="title">Porfolio <span><FontAwesomeIcon icon={faBriefcase} /></span></h1>
                 </Bounce>
                 <Bounce>
-                    <p className="p1"> Below are the four most recent projects that I have worked on during my acamemmic school year. Please be aware that I did not come up with those desings myself. Please click on more to see those designs that I build myself. If you click on "See it" button, a window will popup to show you the project. The window can be close by clicking on the yellow x above the window.</p>
+                    <p className="p1"> Below are the four most recent projects that I have worked on during my academic school year. Please be aware that I did not come up with those desings myself. Please click on more to see those designs that I build myself. If you click on "See it" button, a window will popup to show you the project. The window can be close by clicking on the yellow x above the window.</p>
                     <ColoredCards           
                             position="absolute"
                             top="-17rem"
