@@ -78,7 +78,7 @@ class Menu extends Component {
 
 
     render() {
-        const { isMobileMenuVisible, isMobile, style, scrollNum, scrollOn } = this.state;
+        const { isMobileMenuVisible, isMobile, style, scrollOn } = this.state;
         window.onload = () => {
             this.checkIfMobile();
              this.checkScroll();

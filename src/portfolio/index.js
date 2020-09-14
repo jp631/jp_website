@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faArrowAltCircleDown, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { ProjectCard, Showframe, ColoredCards } from "../misc";
 import "./portfolio.scss";
 import Zoom from "react-reveal/Zoom";

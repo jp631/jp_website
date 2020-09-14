@@ -1,15 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn, faSuperpowers, } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import PersonIcon from '@material-ui/icons/Person';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
-import MessageIcon from '@material-ui/icons/Message';
+//import MessageIcon from '@material-ui/icons/Message';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
-import Fade from "react-reveal/Fade";
 import logo from "../images/logo/logoBrand.png";
 import postImage from "../images/blog/blog.jpg";
 
@@ -140,7 +139,7 @@ export const Showframe = (props) => {
             <div className="closeIcon" title="close">
                 <FontAwesomeIcon icon={faTimesCircle} onClick={props.clickToClose} />
             </div>
-            <iframe key={props.key} className="frame"
+            <iframe key={props.key} title={props.link} className="frame"
                 style={{
                     width: "100%",
                     height: "100%",
@@ -151,7 +150,7 @@ export const Showframe = (props) => {
                 }}
                 src={props.link}
             >
-                <a>visit this link</a>
+                <a href={props.link}>visit this link</a>
             </iframe>
 
         </div>
@@ -211,8 +210,8 @@ export const Poster = (props) => {
                 height: props.height,
                 boxShadow: (props.isMobile) ? props.shadow : ""
             }}>
-            <a src="#blog">
-                <img src={postImage} />
+            <a href="#blog">
+                <img alt={"this"} src={postImage} />
                 <h2 className="post_title">Internet <span>of Today</span></h2>
                 <p className="post_date"> feb - 12 - 2020</p>
                 <p className="latest_post">latest</p>
