@@ -120,7 +120,7 @@ class Porfolio extends Component {
                 </div>
                 <Zoom delay={500}>
                     <a href="#home" className="seeMore">
-                        <p> See More </p>  <FontAwesomeIcon icon={faArrowAltCircleDown} />
+                        <p> See More </p>  <FontAwesomeIcon style={{transform: "rotateX(180deg)"}} icon={faArrowAltCircleDown} />
                     </a>
                 </Zoom>
                     <div style={{position: "fixed", width: "60%", left: "50%", zIndex: "9000"}}>

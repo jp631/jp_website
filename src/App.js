@@ -3,6 +3,7 @@ import Menu from "./menu";
 import Home from "./home";
 import About from "./about";
 import Porfolio from "./portfolio";
+import Blog from "./Blog";
 import { Logo } from "./misc";
 import "./App.scss";
 /**
@@ -80,6 +81,7 @@ class App extends Component {
         <Home />
         <About appState={this.state.trackPage} />
         <Porfolio />
+        <Blog mobileState={this.state.isMobile}/>
 
         <div className="menu_container">
           <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />

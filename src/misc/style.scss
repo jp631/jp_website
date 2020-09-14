@@ -54,7 +54,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
-    background-color: white;
+    background-color: #e95950;
     font-size: 5rem;
 }
 
@@ -118,11 +118,18 @@
     transition: transform .3s;
     font-family: var(--text_secondary_headers);
     cursor: pointer;
+    border: none;
     
    
-    
+    button{
+        border: none;
+        width: 100%;
+        border-radius: 5rem;
+        background-color: transparent;
 
-    a{
+    }
+
+    button{
         text-decoration: none;
 
         &:link, &:visited {
@@ -368,6 +375,7 @@
         border-radius: 1rem;
         box-shadow: var(--primary_shadow);
         transition: all .3s;
+        background-color: var(--second_color);
 
         &:hover{
             transform: translateY(-1rem)
@@ -452,6 +460,8 @@
         background-color: var(--second_color);
         box-shadow: var(--primary_shadow);
         transition: all .3s;
+        background-color: var(--second_color);
+
 
         &:hover{
             transform: translateY(1rem)
@@ -481,12 +491,153 @@
 
         @media screen and (min-width: 1000px) {
             &:hover .buttons{
-                opacity: 1;
-                transform: translateY(-2rem);
+              opacity: 1;
+             transform: translateY(-2rem);
             }
         }
 
        
+    }
+}
+// blog styling
+.blogPoster {
+    width: 37rem;
+    height: 44px;
+    color: var(--second_color);
+
+    a{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 15rem);
+        width: 37rem;
+        height: 44rem;
+
+    img{
+        width: 100%;
+        height: 100%;    
+        grid-column: 1/4;
+        grid-row: 1/4;
+        object-fit: fill;
+    }
+
+    .post_title{
+        background-color: rgba(13, 13, 13, 0.8);
+        font-size: 4rem;
+        grid-column: 1/4;
+        grid-row: 2;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-left: 20%;
+
+
+        span{
+            display: block;
+        }
+    }
+
+    .latest_post {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        text-align: center;
+        align-self: end;
+        grid-column: 2;
+        grid-row: 3;
+        font-family: var(--text);
+        width: 100%;
+        height: 2rem;
+        background-color: rgba(13, 13, 13, 0.8);
+        border-top-right-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+
+
+    }
+
+    .post_date { 
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        align-self: end;
+        grid-column: 1;
+        grid-row: 3;
+        font-family: var(--text);
+        width: 100%;
+        height: 2rem;
+        background-color: rgba(13, 13, 13, 0.8);
+    }
+
+}
+}
+
+//form input
+.labelAndInput {
+    position: relative;
+   // width: 30rem;
+   width: 100%;
+     height: 4rem;
+    display: flex;
+flex-direction: row;
+background-color: var(--second_color);
+    align-items: center;
+    border-radius: 1rem;
+    transition: all .3s;
+
+    &:hover {
+    //    box-shadow: inset var(--primary_shadow);
+        width: 105%;
+    }
+
+    .icon {
+        margin-left: 1rem;
+        margin-right: 1rem;;
+        height: 3rem;
+        background-color: var(--second_color);
+    }
+
+    label{
+        position: absolute;
+        top: 1rem;
+        left: 6rem;
+        font-family: var(--texts);
+        color: var(--first_color);
+        font-size: 1.5rem;
+        opacity: 1;
+        transition: all .3s;
+        opacity: .5;
+        z-index: 1;
+
+    }
+
+    input {
+        width: 80%;
+        height: 90%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border-left: .1rem solid gray;
+        font-size: 2rem;
+        padding-left: .5rem;
+        z-index: 2;
+
+    }
+
+    input:hover ~ label{
+        cursor: text;
+    }
+
+
+    input:focus ~ label{
+        top: -3rem;
+        left: 3rem;
+        font-size: 2.5rem;
+        cursor: text;
+        opacity: 1;
     }
 }
 

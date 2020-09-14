@@ -1,11 +1,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn, faSuperpowers, } from '@fortawesome/free-brands-svg-icons';
+import PersonIcon from '@material-ui/icons/Person';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import MessageIcon from '@material-ui/icons/Message';
+import PhoneIcon from '@material-ui/icons/Phone';
+
 import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import logo from "../images/logo/logoBrand.png";
+import postImage from "../images/blog/blog.jpg";
+
 
 import "./style.scss";
 
@@ -51,9 +58,9 @@ export const Buttons = (props) => {
                     width: (props.width) ? props.width : "25rem",
                     height: (props.height) ? props.height : "auto"
                 }}>
-            <a title={props.link} onClick={props.click} style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
+            <button type={props.type} title={props.link} onClick={props.click} style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
                 {props.text}
-            </a>
+            </button>
         </div>
     );
 }
@@ -128,10 +135,10 @@ export const Showframe = (props) => {
         <div className="iframe_container"
             style={{
                 display: (props.display) ? "block" : "none"
-                }}
+            }}
         >
             <div className="closeIcon" title="close">
-                <FontAwesomeIcon icon={faTimesCircle} onClick={props.clickToClose}/>
+                <FontAwesomeIcon icon={faTimesCircle} onClick={props.clickToClose} />
             </div>
             <iframe key={props.key} className="frame"
                 style={{
@@ -146,7 +153,7 @@ export const Showframe = (props) => {
             >
                 <a>visit this link</a>
             </iframe>
-            
+
         </div>
     )
 }
@@ -163,10 +170,10 @@ export const ProjectCard = (props) => {
                         <a href={props.link} alt={props.name}>
                             <img src={props.image} alt="props.name" title="props.name" />
                             <div className="screen">
-                        </div>
-                        <p>click here to see the project in a new window</p>
+                            </div>
+                            <p>click here to see the project in a new window</p>
                         </a>
-                        
+
                     </div>
 
                 </Tilt>
@@ -195,4 +202,83 @@ export const ProjectCard = (props) => {
     )
 }
 
-// function declaring 
+//  Poster for Blog
+export const Poster = (props) => {
+    return (
+        <div className="blogPoster"
+            style={{
+                width: props.width,
+                height: props.height,
+                boxShadow: (props.isMobile) ? props.shadow : ""
+            }}>
+            <a src="#blog">
+                <img src={postImage} />
+                <h2 className="post_title">Internet <span>of Today</span></h2>
+                <p className="post_date"> feb - 12 - 2020</p>
+                <p className="latest_post">latest</p>
+            </a>
+
+
+        </div>
+    )
+}
+
+// input for form
+//input field
+export class InputField extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: props.id
+        }
+    }
+
+    typeOfIcon = (this.props.type === "email") ?
+        <AlternateEmailIcon style={{ fontSize: 30 }} />
+        : (this.props.firstName || this.props.lastName) ?
+            <PersonIcon style={{ fontSize: 30 }} />
+            : (this.props.phone) ?
+                <PhoneIcon style={{ fontSize: 30 }} />
+                :
+                "";
+    componentDidMount() {
+        console.log(`id id di ${this.props.id}`);
+
+        const theId = document.getElementById(`${this.props.id}`);
+        const thatIdLabel = document.getElementById(`label_${theId.id}`);
+        theId.addEventListener('input', (event) => {
+            let newLabel = thatIdLabel.innerText.replace(":", '');
+            // event.target.style.backgroundColor = "red";
+            if (theId.value.length > 0) {
+                thatIdLabel.style.top = "-3rem";
+                thatIdLabel.style.left = "0rem";
+                thatIdLabel.style.fontSize = "2rem";
+                thatIdLabel.style.opacity = "1"
+                if((theId.value.length >= 0 && theId.value.length <= 1)
+                    && (!thatIdLabel.innerText.includes(":"))) {
+                    thatIdLabel.innerText += ":"
+
+                }} else {
+                thatIdLabel.style.top = "";
+                thatIdLabel.style.left = "";
+                thatIdLabel.style.fontSize = "";
+                thatIdLabel.style.opacity = "";
+                thatIdLabel.innerText = newLabel;
+            }
+            console.log(theId.value)
+        })
+    }
+
+
+    render() {
+        return (
+            // finish adding props and functinality        
+            <div className="labelAndInput">
+                <div className="icon">{this.typeOfIcon}</div>
+                <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
+                <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
+            </div>
+        )
+    }
+}
+
