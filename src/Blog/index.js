@@ -66,7 +66,7 @@ class Blog extends Component {
     render() {
         return (
             <div className="blog_container">
-                <Bounce delay={500}>
+                {/* <Bounce delay={500}>
                 <h1 className="title"> Blog <span><FontAwesomeIcon icon={faRss} /></span></h1>
                 </Bounce>
                 <div className="contents_container">
@@ -120,10 +120,10 @@ class Blog extends Component {
                     </form>
                     </div>
                    
-                    {/* backgroundColor: props.backColor,
-                    color: props.color, */}
+                    backgroundColor: props.backColor,
+                    color: props.color, 
                 </div>
-                {console.log("blog is render")}
+                {console.log("blog is render")} */}
             </div>
         );
     }
