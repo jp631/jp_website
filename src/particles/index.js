@@ -83,6 +83,8 @@ class Particle extends Component {
                         detectRetina: true,
                     }}
                 />
+                        {console.log("particle is render")}
+
             </div>
         );
     }

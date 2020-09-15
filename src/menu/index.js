@@ -76,7 +76,6 @@ class Menu extends Component {
 
     }
 
-
     render() {
         const { isMobileMenuVisible, isMobile, style, scrollOn } = this.state;
         window.onload = () => {
@@ -135,6 +134,8 @@ class Menu extends Component {
 
                     </div>
                 </div>
+                {console.log("menu is render")}
+
             </>
         );
     }

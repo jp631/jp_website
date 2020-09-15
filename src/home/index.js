@@ -74,6 +74,8 @@ class Home extends Component {
                         <ColoredCards color="var(--fifth_color)" />
                     </div>
                 </div>
+                {console.log("home is render")}
+
             </div>
         );
     };

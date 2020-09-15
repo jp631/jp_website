@@ -86,6 +86,7 @@ class App extends Component {
         <div className="menu_container">
           <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
         </div>
+        {console.log("app is render")}
       </div>
     );
   }

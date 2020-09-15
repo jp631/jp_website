@@ -276,6 +276,8 @@ export class InputField extends React.Component {
                 <div className="icon">{this.typeOfIcon}</div>
                 <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
+                {console.log("inputfield is render")}
+
             </div>
         )
     }

@@ -69,7 +69,7 @@ const About = (props) => {
                        opacity: (props.appState === "about") ?  "1" : "0",  }}>
                    <YellowCardShift />
                   </div> 
-                   
+                  {console.log("about is render")}
                 
         </div>
     );

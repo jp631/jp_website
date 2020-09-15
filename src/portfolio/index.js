@@ -126,6 +126,7 @@ class Porfolio extends Component {
                     <div style={{position: "fixed", width: "60%", left: "50%", zIndex: "9000"}}>
                     { this.displayframe()}
                     </div>
+                    {console.log("portfolio is render")}
 
             </div>
         );
