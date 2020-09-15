@@ -113,13 +113,12 @@ class Blog extends Component {
                     <p>
                           Sign up to my email list to know about my latest blog post and to receive update from me. 
                     </p>
-
-                    <form>
+                    </div>
+                </div>
+                <form>
                          <InputField type="email" label="Email" id="emailMe"/>
                           <Buttons type="submit" backColor="var(--second_color)" text="Subscribe" width="12rem" height="4rem" textSize="2.5rem" position="relative" top="2rem"/>
                     </form>
-                    </div>
-                </div>
                 {console.log("blog is render")}
             </div>
         );
