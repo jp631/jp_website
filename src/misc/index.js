@@ -246,25 +246,25 @@ export class InputField extends React.Component {
         const theId = document.getElementById(`${this.props.id}`);
         const thatIdLabel = document.getElementById(`label_${theId.id}`);
         theId.addEventListener('input', (event) => {
-            let newLabel = thatIdLabel.innerText.replace(":", '');
-            // event.target.style.backgroundColor = "red";
-            if (theId.value.length > 0) {
-                thatIdLabel.style.top = "-3rem";
-                thatIdLabel.style.left = "0rem";
-                thatIdLabel.style.fontSize = "2rem";
-                thatIdLabel.style.opacity = "1"
-                if((theId.value.length >= 0 && theId.value.length <= 1)
-                    && (!thatIdLabel.innerText.includes(":"))) {
-                    thatIdLabel.innerText += ":"
+            // let newLabel = thatIdLabel.innerText.replace(":", '');
+            // // event.target.style.backgroundColor = "red";
+            // if (theId.value.length > 0) {
+            //     thatIdLabel.style.top = "-3rem";
+            //     thatIdLabel.style.left = "0rem";
+            //     thatIdLabel.style.fontSize = "2rem";
+            //     thatIdLabel.style.opacity = "1"
+            //     if((theId.value.length >= 0 && theId.value.length <= 1)
+            //         && (!thatIdLabel.innerText.includes(":"))) {
+            //         thatIdLabel.innerText += ":"
 
-                }} else {
-                thatIdLabel.style.top = "";
-                thatIdLabel.style.left = "";
-                thatIdLabel.style.fontSize = "";
-                thatIdLabel.style.opacity = "";
-                thatIdLabel.innerText = newLabel;
-            }
-            console.log(theId.value)
+            //     }} else {
+            //     thatIdLabel.style.top = "";
+            //     thatIdLabel.style.left = "";
+            //     thatIdLabel.style.fontSize = "";
+            //     thatIdLabel.style.opacity = "";
+            //     thatIdLabel.innerText = newLabel;
+            // }
+            // console.log(theId.value)
         })
     }
 
