@@ -96,7 +96,7 @@ class Blog extends Component {
                     </div>
 
                     <div className="doubleArrow" style={{ transform: (this.state.arrowPushMenu) ? "translateX(-5rem)" : "translateX(-10rem)"}} onClick={this.sideMenuBlog}>
-                        <FontAwesomeIcon icon={faAngleDoubleRight} style={{transform: (this.state.arrowPushMenu) ? "rotateY(0deg)" : "rotateY(180deg)"}} />
+                        <FontAwesomeIcon icon={faAngleDoubleRight} style={{transform: (this.state.arrowPushMenu) ?  "rotateY(180deg)" : "rotateY(0deg)"  }} />
                     </div>
                     <div className="visit">
                         <Buttons    
