@@ -232,14 +232,14 @@ export class InputField extends React.Component {
         }
     }
 
-    // typeOfIcon = (this.props.type === "email") ?
-    //     <AlternateEmailIcon style={{ fontSize: 30 }} />
-    //     : (this.props.firstName || this.props.lastName) ?
-    //         <PersonIcon style={{ fontSize: 30 }} />
-    //         : (this.props.phone) ?
-    //             <PhoneIcon style={{ fontSize: 30 }} />
-    //             :
-    //             "";
+    typeOfIcon = (this.props.type === "email") ?
+        <AlternateEmailIcon style={{ fontSize: 30 }} />
+        : (this.props.firstName || this.props.lastName) ?
+            <PersonIcon style={{ fontSize: 30 }} />
+            : (this.props.phone) ?
+                <PhoneIcon style={{ fontSize: 30 }} />
+                :
+                "";
 
     componentDidMount = ()=> {
         const theId = document.getElementById(`${this.props.id}`);
@@ -266,12 +266,10 @@ export class InputField extends React.Component {
         })
     }
 
-
     render() {
         return (
-            // finish adding props and functinality        
             <div className="labelAndInput">
-                {/* <div className="icon">{this.typeOfIcon}</div> */}
+                <div className="icon">{this.typeOfIcon}</div>
                 <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
             </div>
