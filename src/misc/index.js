@@ -253,15 +253,15 @@ export class InputField extends React.Component {
                 thatIdLabel.style.fontSize = "2rem";
                 thatIdLabel.style.opacity = "1"
                 if((theId.value.length >= 0 && theId.value.length <= 1)
-                    && (!thatIdLabel.innerText.includes(":"))) {
-                    thatIdLabel.innerText += ":"
+                    && (!thatIdLabel.innerHTML.includes(":"))) {
+                    thatIdLabel.innerHTML += ":"
 
                 }} else {
                 thatIdLabel.style.top = "";
                 thatIdLabel.style.left = "";
                 thatIdLabel.style.fontSize = "";
                 thatIdLabel.style.opacity = "";
-                thatIdLabel.innerText = newLabel;
+                thatIdLabel.innerHTML = newLabel;
             }
         })
     }

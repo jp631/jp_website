@@ -41,6 +41,14 @@
       justify-self: center;
        position: relative;
        top: -10rem;
+
+       a{
+           color: var(--second_color);
+           text-decoration: none;
+       }
+       a:visited, a:active{
+           color: var(--second_color);
+       }
     }
     .article_list{
        position: absolute;
