@@ -241,29 +241,9 @@ export class InputField extends React.Component {
                 :
                 "";
     componentDidMount() {
-        console.log(`id id di ${this.props.id}`);
-
         const theId = document.getElementById(`${this.props.id}`);
         const thatIdLabel = document.getElementById(`label_${theId.id}`);
-        theId.addEventListener('input', (event) => {
-            let newLabel = thatIdLabel.innerText.replace(":", '');
-            if (theId.value.length > 0) {
-                thatIdLabel.style.top = "-3rem";
-                thatIdLabel.style.left = "0rem";
-                thatIdLabel.style.fontSize = "2rem";
-                thatIdLabel.style.opacity = "1"
-                if((theId.value.length >= 0 && theId.value.length <= 1)
-                    && (!thatIdLabel.innerHTML.includes(":"))) {
-                    thatIdLabel.innerHTML += ":"
-
-                }} else {
-                thatIdLabel.style.top = "";
-                thatIdLabel.style.left = "";
-                thatIdLabel.style.fontSize = "";
-                thatIdLabel.style.opacity = "";
-                thatIdLabel.innerHTML = newLabel;
-            }
-        })
+       
     }
 
 
@@ -274,8 +254,6 @@ export class InputField extends React.Component {
                 <div className="icon">{this.typeOfIcon}</div>
                 <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
-                {console.log("inputfield is render")}
-
             </div>
         )
     }
