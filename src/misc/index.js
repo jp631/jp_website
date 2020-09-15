@@ -232,23 +232,37 @@ export class InputField extends React.Component {
         }
     }
 
-    typeOfIcon = (this.props.type === "email") ?
-        <AlternateEmailIcon style={{ fontSize: 30 }} />
-        : (this.props.firstName || this.props.lastName) ?
-            <PersonIcon style={{ fontSize: 30 }} />
-            : (this.props.phone) ?
-                <PhoneIcon style={{ fontSize: 30 }} />
-                :
-                "";
 
+    componentDidMount() {
+        const theId = document.getElementById(`${this.props.id}`);
+        const thatIdLabel = document.getElementById(`label_${theId.id}`);
+        theId.addEventListener('input', (event) => {
+            let newLabel = thatIdLabel.innerText.replace(":", '');
+            if (theId.value.length > 0) {
+                thatIdLabel.style.top = "-3rem";
+                thatIdLabel.style.left = "0rem";
+                thatIdLabel.style.fontSize = "2rem";
+                thatIdLabel.style.opacity = "1"
+                if((theId.value.length >= 0 && theId.value.length <= 1)
+                    && (!thatIdLabel.innerHTML.includes(":"))) {
+                    thatIdLabel.innerHTML += ":"
 
+                }} else {
+                thatIdLabel.style.top = "";
+                thatIdLabel.style.left = "";
+                thatIdLabel.style.fontSize = "";
+                thatIdLabel.style.opacity = "";
+                thatIdLabel.innerHTML = newLabel;
+            }
+        })
+    }
 
 
     render() {
         return (
             // finish adding props and functinality        
             <div className="labelAndInput">
-                <div className="icon">{this.typeOfIcon}</div>
+                <div className="icon"></div>
                 <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
             </div>
