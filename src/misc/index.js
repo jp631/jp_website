@@ -270,9 +270,9 @@ export class InputField extends React.Component {
         return (
             // finish adding props and functinality        
             <div className="labelAndInput">
-                {/* <div className="icon">{this.typeOfIcon}</div>
-                <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
-                <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label> */}
+                <div className="icon">me</div>
+                <input id="me" type="email" title="de" />
+                <label htmlFor="me" id="labl" >Email </label>
             </div>
         )
     }
