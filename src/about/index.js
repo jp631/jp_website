@@ -64,13 +64,11 @@ const About = (props) => {
                  <div className="yellowCardNormal"   style={{opacity: (props.appState === "about") ?  "1" : "0",}}  >
                      <YellowCardNormal />
                    </div>
-                   
+
                    <div className="yellowCardShift" style={{
                        opacity: (props.appState === "about") ?  "1" : "0",  }}>
                    <YellowCardShift />
-                  </div> 
-                  {console.log("about is render")}
-                
+                  </div>                 
         </div>
     );
 };

@@ -3,11 +3,11 @@ import "./blog.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import Bounce from "react-reveal/Bounce";
-import {Poster, Buttons, InputField} from "../misc";
+import { Poster, Buttons, InputField } from "../misc";
 
 
 class Blog extends Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
             arrowPushMenu: false,
@@ -40,87 +40,84 @@ class Blog extends Component {
         }
     }
 
-        sideMenuBlog = ()=> {
+    sideMenuBlog = () => {
 
-            if(window.innerWidth < 1000){
-                this.setState({
-                    arrowPushMenu: (this.state.arrowPushMenu) ? false :  true
-                })
-            }
-            console.log(`after blog ${this.state.arrowPushMenu}`)
-
+        if (window.innerWidth < 1000) {
+            this.setState({
+                arrowPushMenu: (this.state.arrowPushMenu) ? false : true
+            })
         }
+    }
 
-  componentWillUpdate(){
-    window.onresize =()=>{
+    UNSAFE_componentWillUpdate() {
+        window.onresize = () => {
             this.setState({
                 arrowPushMenu: false
             })
         }
 
-    window.onload =()=>{
+        window.onload = () => {
+        }
+
     }
-    
-  }
 
     render() {
         return (
             <div className="blog_container">
                 <Bounce delay={500}>
-                <h1 className="title"> Blog <span><FontAwesomeIcon icon={faRss} /></span></h1>
+                    <h1 className="title"> Blog <span><FontAwesomeIcon icon={faRss} /></span></h1>
                 </Bounce>
                 <div className="contents_container">
                     <div className="poster_container">
-                    <Poster isMobile={true} shadow="0rem 5rem 10rem 0.5rem black"/>
+                        <Poster isMobile={true} shadow="0rem 5rem 10rem 0.5rem black" />
                     </div>
                     <div className="article_list" style={{
-                         left: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "0rem" : "",
+                        left: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "0rem" : "",
                         opacity: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "1" : ""
-                                }}>
+                    }}>
                         <ul>
-                         <h4>Recent Blog Posts</h4>
-                          {
-                          this.state.blog.map((article)=>{
-                              
-                              return(
-                                <li>{
-                                    ( article.title.length > 19) ? `${article.title.slice(0, 20)}...` :  article.title // slice the texts that has more than the 19 character
-                                   }
-                                </li>
-                              )
-                              
-                          })
+                            <h4>Recent Blog Posts</h4>
+                            {
+                                this.state.blog.map((article) => {
+
+                                    return (
+                                        <li key={article.title}>{
+                                            (article.title.length > 19) ? `${article.title.slice(0, 20)}...` : article.title // slice the texts that has more than the 19 character
+                                        }
+                                        </li>
+                                    )
+
+                                })
                             }
                             <div></div>
                         </ul>
                     </div>
 
-                    <div className="doubleArrow" style={{ transform: (this.state.arrowPushMenu) ? "translateX(-5rem)" : "translateX(-10rem)"}} onClick={this.sideMenuBlog}>
-                        <FontAwesomeIcon icon={faAngleDoubleRight} style={{transform: (this.state.arrowPushMenu) ?  "rotateY(180deg)" : "rotateY(0deg)"  }} />
+                    <div className="doubleArrow" style={{ transform: (this.state.arrowPushMenu) ? "translateX(-5rem)" : "translateX(-10rem)" }} onClick={this.sideMenuBlog}>
+                        <FontAwesomeIcon icon={faAngleDoubleRight} style={{ transform: (this.state.arrowPushMenu) ? "rotateY(180deg)" : "rotateY(0deg)" }} />
                     </div>
                     <div className="visit">
-                        <Buttons    
+                        <Buttons
                             link={"#home"}
                             text="visit"
                             backColor="var(--second_color)"
                             width="10rem"
                             textSize="2rem"
                             color="var(--first_color)"
-                            position="relative"/>
+                            position="relative" />
                     </div>
 
                     <div className="signIn_emailList_message">
-                    <p>
-                          Sign up to my email list to know about my latest blog post and to receive update from me. 
+                        <p>
+                            Sign up to my email list to know about my latest blog post and to receive update from me.
                     </p>
 
-                    <form>
-                         <InputField type="email" label="Email" id="emailMe"/>
-                          <Buttons type="submit" backColor="var(--second_color)" text="Subscribe" width="12rem" height="4rem" textSize="2.5rem" position="relative" top="2rem"/>
-                    </form>
+                        <form id="subscribe_form">
+                            <InputField type="email" label="Email" id="emailMe" title="email" />
+                            <Buttons type="submit" backColor="var(--second_color)" text="Subscribe" width="12rem" height="4rem" textSize="2.5rem" position="relative" top="2rem" />
+                        </form>
                     </div>
                 </div>
-                {console.log("blog is render")}
             </div>
         );
     }

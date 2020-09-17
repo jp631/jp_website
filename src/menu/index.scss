@@ -1,7 +1,6 @@
 .menu {
-  
 }
-    
+
 .addCircleMobile {
     position: fixed;
     width: 5rem;
@@ -9,8 +8,7 @@
     top: 0;
     right: 0rem;
     z-index: 4000;
-    transition: all .5s cubic-bezier(.26,1.45,.87,-0.49);
-
+    transition: all 0.5s cubic-bezier(0.26, 1.45, 0.87, -0.49);
 
     .circle_cover {
         position: absolute;
@@ -21,7 +19,7 @@
         z-index: 9000;
         transform: scale(1.4);
 
-        &:hover{
+        &:hover {
             cursor: pointer;
         }
     }
@@ -31,35 +29,33 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center;
     position: fixed;
+
     top: 0;
     bottom: 0;
     right: -25rem;
     z-index: 5000;
     font-size: 8rem;
-    transition: all .5s cubic-bezier(.26,1.45,.87,-0.49);
+    transition: all 0.5s cubic-bezier(0.26, 1.45, 0.87, -0.49);
     overflow-y: scroll;
     background-color: var(--fifth_color);
-  
-    @media screen and (min-width: 1000px) {
 
+    @media screen and (min-width: 1000px) {
     }
 
-
     .menuIcons {
-        display: block;
-        width: fit-content;
+        display: inline;
         color: var(--second_color);
-        transition: all .2s;
+        transition: all 0.2s;
+        text-decoration: none;
 
-
-        &:hover{
+        &:hover {
             transform: scale(1.1);
-            color: var(--first_color)
-
+            color: var(--first_color);
         }
-}
+    }
 }
 
 .menu_desktop {
@@ -75,36 +71,35 @@
     align-items: center;
     font-size: 5rem;
 
-
-        a {
-            width: 100%;
-        }
+    a {
+        width: 100%;
+    }
     &:after {
-          content: " ";
-          position: absolute;
-          top: 8rem;
-         width: 65rem;
-         height: .1rem;
-         background-color: var(--first_color);
-         border-radius: .5rem;
-        opacity: .5;
-        transition: all .5s cubic-bezier(.26,1.45,.87,-0.49);
+        content: " ";
+        position: absolute;
+        top: 8rem;
+        width: 65rem;
+        height: 0.1rem;
+        background-color: var(--first_color);
+        border-radius: 0.5rem;
+        opacity: 0.5;
+        transition: all 0.5s cubic-bezier(0.26, 1.45, 0.87, -0.49);
+    }
+    .menuIcons {
+        display: inline-block;
+        width: fit-content;
+        color: var(--first_color);
+        margin: 2.5rem;
+        list-style: none;
 
-        
-                }
-        .menuIcons{
+        &:hover {
+            color: var(--fifth_color);
+            transform: scale(1.2);
+            transition: all 0.3s;
+        }
+
+        &:focus {
             color: var(--first_color);
-             margin: 2.5rem;
-
-             &:hover {
-                 color: var(--fifth_color);
-                 transform: scale(1.2);
-                 transition: all .3s;
-             }
-
-             &:focus{
-                 color: var(--first_color);
-             }
-
-          }
+        }
+    }
 }

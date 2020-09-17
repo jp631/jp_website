@@ -14,7 +14,6 @@ class Menu extends Component {
             scrollNum: 0,
             scrollOn: false,
             isMobileMenuVisible: false,
-            isDesktopMenu: false,
             style: {
                 mobileStyle: {
                     menu: "menu_mobile",
@@ -56,7 +55,6 @@ class Menu extends Component {
             scrollNum: window.scrollY,
             scrollOn: (window.scrollY > 400) ? true : false
         })
-        console.log(this.state.scrollNum)
     }
 
     checkIfMobile = () => {
@@ -65,33 +63,45 @@ class Menu extends Component {
                 isMobile: (window.innerWidth < 1000) ? true : false
             }
         )
-        console.log(`mobile in check: ${this.state.isMobile}`);
     }
 
-    
-
-    componentWillMount() {
+    USAFE_componentWillMount() {
         this.checkIfMobile();
         this.checkScroll();
-
     }
 
-    render() {
-        const { isMobileMenuVisible, isMobile, style, scrollOn } = this.state;
+    USAFE_componentWillUpdate = () => {
         window.onload = () => {
             this.checkIfMobile();
-             this.checkScroll();
+            this.checkScroll();
         }
         window.onscroll = () => {
             this.checkScroll();
             this.closeMenuOnScroll();
-            //  console.log(scrollNum);
         }
         window.onresize = () => {
             this.checkIfMobile();
             this.checkScroll();
-            console.log(`mobile: ${this.state.isMobile}`);
         }
+    }
+
+    componentDidUpdate = () => {
+        window.onload = () => {
+            this.checkIfMobile();
+            this.checkScroll();
+        }
+        window.onscroll = () => {
+            this.checkScroll();
+            this.closeMenuOnScroll();
+        }
+        window.onresize = () => {
+            this.checkIfMobile();
+            this.checkScroll();
+        }
+    }
+
+    render() {
+        const { isMobileMenuVisible, isMobile, style, scrollOn } = this.state;
         return (
             <>
                 <menu className={`menu ${(isMobile || (!isMobile && scrollOn)) ? style.mobileStyle.menu : style.desktopStyle.menu}`}
@@ -130,12 +140,10 @@ class Menu extends Component {
                 >
                     <ColoredCircle />
                     {/** that div cover the 3 circle and I use it to do the click */}
-                    <div className="circle_cover"  onClick={this.toggleMenu}>
+                    <div className="circle_cover" onClick={this.toggleMenu}>
 
                     </div>
                 </div>
-                {console.log("menu is render")}
-
             </>
         );
     }

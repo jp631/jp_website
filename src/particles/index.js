@@ -6,8 +6,8 @@ class Particle extends Component {
         return (
             <div>
                 <Particles
-                   width="100vw"
-                   height="80rem"
+                    width="100vw"
+                    height="80rem"
                     id="app"
                     options={{
                         fpsLimit: 60,
@@ -83,8 +83,6 @@ class Particle extends Component {
                         detectRetina: true,
                     }}
                 />
-                        {console.log("particle is render")}
-
             </div>
         );
     }

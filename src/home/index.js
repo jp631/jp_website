@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./style.scss";
-import profilePhoto from "../images/logo/man.jpg";
 import { SocialLogos, Buttons, ColoredCards } from "../misc";
 import Particles from "../particles";
 import Bounce from "react-reveal/Bounce";
@@ -21,9 +20,10 @@ class Home extends Component {
 
         });
     }
-
-    componentDidMount() {
-
+    UNSAFE_componentWillUpdate() {
+        window.onresize = this.checkSize;
+    }
+    componentDidUpdate() {
         window.onresize = this.checkSize;
     }
 
@@ -38,14 +38,22 @@ class Home extends Component {
                     <div className="home-profilePhoto_container">
                         <div className="image">
                             <a href="www.jerryprophete.com" alt="jerry prophete">
-                                <img src={profilePhoto} alt="jerry's pic" title="Jerry Prophete" />
+                                <img srcSet={`
+                                    ${require(`../images/logo/man_small.jpg`)} 250w,
+                                    ${require(`../images/logo/man.jpg`)} 500w`}
+                                sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
+                                alt="Jerry Prophete"
+                                title="jerry prophete"
+                                src={require(`../images/logo/man.jpg`)}
+
+                            />
                             </a>
                         </div>
                     </div>
 
                     <div className="home-socialMedia">
                         <Zoom delay={1000}>
-                            <SocialLogos isTrue={true} />
+                            <SocialLogos show={true} facebook={true} instagram={true} twitter={true} youtube={true} linkedIn={true} />
                         </Zoom>
                     </div>
 
@@ -57,7 +65,6 @@ class Home extends Component {
                                 <span className="p3">I can build your website.</span>
                             </p>
                         </Bounce>
-
                     </div>
                     <div className="theButton">
                         <Buttons
@@ -74,8 +81,6 @@ class Home extends Component {
                         <ColoredCards color="var(--fifth_color)" />
                     </div>
                 </div>
-                {console.log("home is render")}
-
             </div>
         );
     };

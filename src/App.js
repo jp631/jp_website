@@ -1,15 +1,8 @@
-import React, { Component } from 'react';
+import React, { Suspense, Component } from 'react';
 import Menu from "./menu";
-import Home from "./home";
-import About from "./about";
-import Porfolio from "./portfolio";
-import Blog from "./Blog";
-import { Logo } from "./misc";
+import { Logo, LoaderSpinner } from "./misc";
 import "./App.scss";
-/**
- * let theWidth = window.innerWidth;
- * style={{width: `${theWidth}px`, minWidth: "400px", height: "auto"}}
- */
+import ErrorBoundary from "./ErrorHandler"
 
 class App extends Component {
   constructor() {
@@ -53,13 +46,14 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+
     this.checkIfMobile();
     window.onload = () => {
       this.setState({
         device: document.querySelector(".app"),
       });
       this.checkIfMobile();
-      console.log(`app mobile; ${this.state.isMobile}`);
+      
     }
 
     window.onresize = () => {
@@ -73,20 +67,52 @@ class App extends Component {
 
   }
 
+  componentWillUnmount = () => {
+    this.checkIfMobile();
+
+    window.onload = () => {
+      this.setState({
+        device: document.querySelector(".app"),
+      });
+      this.checkIfMobile();
+    }
+
+    window.onresize = () => {
+      this.checkIfMobile();
+    }
+
+    window.onscroll = () => {
+      this.checkScrollLevel();
+      this.checkTrackPage();
+    }
+  }
+
 
   render() {
+    const Home = React.lazy(() => import('./home'));
+    const About = React.lazy(() => import('./about'));
+    const Portfolio = React.lazy(() => import('./portfolio'));
+    const Blog = React.lazy(() => import('./Blog'));
+    const Contact = React.lazy(() => import('./contact'));
+    const Footer = React.lazy(() => import('./footer'));
+
+
     return (
       <div className="app">
-        <Logo />
-        <Home />
-        <About appState={this.state.trackPage} />
-        <Porfolio />
-        <Blog mobileState={this.state.isMobile}/>
-
-        <div className="menu_container">
-          <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
-        </div>
-        {console.log("app is render")}
+            <ErrorBoundary>
+              <Logo />
+              <Suspense fallback={<LoaderSpinner />}>
+                <Home />
+                <About appState={this.state.trackPage} />
+                <Portfolio />
+                <Blog mobileState={this.state.isMobile} />
+                <Contact />
+                <Footer />
+              </Suspense>
+               <div className="menu_container">
+                  <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
+                </div>
+            </ErrorBoundary>
       </div>
     );
   }

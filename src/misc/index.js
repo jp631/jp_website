@@ -4,12 +4,11 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faTwitter, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import PersonIcon from '@material-ui/icons/Person';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
-//import MessageIcon from '@material-ui/icons/Message';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
-import logo from "../images/logo/logoBrand.png";
+import logo from "../images/logo/jpimprovelogo.svg";
 import postImage from "../images/blog/blog.jpg";
 
 
@@ -18,27 +17,46 @@ import "./style.scss";
 export const Logo = (props) => {
     return (
         <div className="logo">
-            <img src={logo} alt="logo" width="50px" height="auto" title="logo" />
+           <a href="/"> <img src={logo} alt="jerryprophete.com logo" /></a>
         </div>
     );
 };
 
-export const SocialLogos = () => {
+export const SocialLogos = (props) => {
+
     return (
-        <div className="icons">
-            <a href="be.com" className={(true) ? "facebook" : "false"} >
+        <div className="icons" style={{
+            display: (props.show) ? "flex" : "none",
+            fontSize: props.fontSize
+        }}>
+            <a href="be.com" className={(props.facebook) ? "facebook" : "facebookNoAfter"}
+                style={{
+                    color: (Array.isArray(props.colors) && props.colors[0]) ? props.colors[0] : ""
+                }} >
                 <FontAwesomeIcon icon={faFacebookF} />
             </a>
-            <a href="be.com" className={(true) ? "istagram" : "false"}>
+            <a href="be.com" className={(props.instagram) ? "instagram" : "instagramNoAfter"}
+                style={{
+                    color: (Array.isArray(props.colors) && props.colors[1]) ? props.colors[1] : ""
+                }} >
                 <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="be.com" className={(true) ? "twitter" : "false"}>
+            <a href="be.com" className={(props.twitter) ? "twitter" : "twitterNoAfter"}
+                style={{
+                    color: (Array.isArray(props.colors) && props.colors[2]) ? props.colors[2] : ""
+                }} >
                 <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="be.com" className={(true) ? "youtube" : "false"}>
+            <a href="be.com" className={(props.youtube) ? "youtube" : "youtubeNoAfter"}
+                style={{
+                    color: (Array.isArray(props.colors) && props.colors[3]) ? props.colors[3] : ""
+                }} >
                 <FontAwesomeIcon icon={faYoutube} />
             </a>
-            <a href="be.com" className={(true) ? "linkedIn" : "false"}>
+            <a href="be.com" className={(props.linkedIn) ? "linkedIn" : "linkedInNoAfter"}
+                style={{
+                    color: (Array.isArray(props.colors) && props.colors[4]) ? props.colors[4] : ""
+                }} >
                 <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
         </div>
@@ -79,9 +97,6 @@ export const ColoredCards = (props) => {
                     left: (props.left) ? props.left : "",
                     bottom: (props.bottom) ? props.bottom : "",
                     boxShadow: (props.shadow) ? props.shadow : ""
-
-
-
                 }}>
             </div>
         </Zoom>
@@ -146,7 +161,6 @@ export const Showframe = (props) => {
                     border: "none",
                     borderRadius: ".5rem",
                     transition: "all .3s",
-
                 }}
                 src={props.link}
             >
@@ -158,7 +172,6 @@ export const Showframe = (props) => {
 }
 
 export const ProjectCard = (props) => {
-
     return (
         <Tilt className="Tilt" option={{ max: 25, perspective: 1000, scale: 1, speed: 300, reset: true }}>
             <div className="projectCard">
@@ -167,7 +180,19 @@ export const ProjectCard = (props) => {
                     <div className="secondRec">
                         <h1>{props.name}</h1>
                         <a href={props.link} alt={props.name}>
-                            <img src={props.image} alt="props.name" title="props.name" />
+                            {/* <img src={props.smallImage} alt={props.name} title={props.name} /> */}
+
+                            <img srcSet={`
+                                    ${require(`../images/projects/${props.image}_small.jpg`)} 250w,
+                                    ${require(`../images/projects/${props.image}_medium.jpg`)} 500w,
+                                    ${require(`../images/projects/${props.image}_medium.jpg`)}, 1000w`}
+                                sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
+                                alt={props.name}
+                                src={require(`../images/projects/${props.image}_medium.jpg`)}
+
+                            />
+
+
                             <div className="screen">
                             </div>
                             <p>click here to see the project in a new window</p>
@@ -197,7 +222,6 @@ export const ProjectCard = (props) => {
                 </Tilt>
             </div>
         </Tilt>
-
     )
 }
 
@@ -222,7 +246,6 @@ export const Poster = (props) => {
     )
 }
 
-// input for form
 //input field
 export class InputField extends React.Component {
     constructor(props) {
@@ -232,16 +255,16 @@ export class InputField extends React.Component {
         }
     }
 
-    typeOfIcon = (this.props.type === "email") ?
+    typeOfIcon = (this.props.title === "email") ?
         <AlternateEmailIcon style={{ fontSize: 30 }} />
-        : (this.props.firstName || this.props.lastName) ?
+        : (this.props.title === "First Name" || this.props.title === "Last Name") ?
             <PersonIcon style={{ fontSize: 30 }} />
-            : (this.props.phone) ?
+            : (this.props.title === "Phone") ?
                 <PhoneIcon style={{ fontSize: 30 }} />
                 :
                 "";
 
-    componentDidMount = ()=> {
+    componentDidMount = () => {
         const theId = document.getElementById(`${this.props.id}`);
         const thatIdLabel = document.getElementById(`label_${theId.id}`);
         theId.addEventListener('input', (event) => {
@@ -254,7 +277,6 @@ export class InputField extends React.Component {
                 if ((theId.value.length >= 0 && theId.value.length <= 1)
                     && (!thatIdLabel.innerHTML.includes(":"))) {
                     thatIdLabel.innerHTML += ":"
-
                 }
             } else {
                 thatIdLabel.style.top = "";
@@ -265,15 +287,21 @@ export class InputField extends React.Component {
             }
         })
     }
-
     render() {
         return (
             <div className="labelAndInput">
                 <div className="icon">{this.typeOfIcon}</div>
-                <input id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.type} />
+                <input required id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.title} />
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
             </div>
         );
     }
 }
 
+export const LoaderSpinner = () => {
+    return (
+        <div className="loader_spinner">
+            <div className="loader"></div>
+        </div>
+    )
+}

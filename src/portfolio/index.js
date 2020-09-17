@@ -7,7 +7,7 @@ import Zoom from "react-reveal/Zoom";
 import Bounce from "react-reveal/Bounce";
 
 
-class Porfolio extends Component {
+class Portfolio extends Component {
     constructor() {
         super();
         this.state = {
@@ -40,11 +40,7 @@ class Porfolio extends Component {
                     text: "This is an eCommerce website for hiking.It is a great outdoor activities that anyone should enjoy."
                 }
             ]
-
         }
-    }
-
-    componentWillReceiveProps(){
     }
 
     openCloseFrame = (link) => {
@@ -55,16 +51,15 @@ class Porfolio extends Component {
         })
     }
 
-    displayframe =() => {
+    displayframe = () => {
         return (
             <div>
-                    <Showframe
-                        link={this.state.dispplayLink}
-                        display= {this.state.showFrames}
-                        clickToClose={this.openCloseFrame}
-                     />
+                <Showframe
+                    link={this.state.dispplayLink}
+                    display={this.state.showFrames}
+                    clickToClose={this.openCloseFrame}
+                />
             </div>
-
         )
     }
 
@@ -76,31 +71,30 @@ class Porfolio extends Component {
                 </Bounce>
                 <Bounce>
                     <p className="p1"> Below are the four most recent projects that I have worked on during my academic school year. Please be aware that I did not come up with those desings myself. Please click on more to see those designs that I build myself. If you click on "See it" button, a window will popup to show you the project. The window can be close by clicking on the yellow x above the window.</p>
-                    <ColoredCards           
-                            position="absolute"
-                            top="-17rem"
-                            right="-55rem"
-                            width="20rem"
-                            color="var(--third_color)"
+                    <ColoredCards
+                        position="absolute"
+                        top="-17rem"
+                        right="-55rem"
+                        width="20rem"
+                        color="var(--third_color)"
                     />
-                         <ColoredCards           
-                            position="absolute"
-                            top="-17rem"
-                            left="-55rem"
-                            width="20rem"
-                            color="var(--third_color)"
+                    <ColoredCards
+                        position="absolute"
+                        top="-17rem"
+                        left="-55rem"
+                        width="20rem"
+                        color="var(--third_color)"
                     />
                 </Bounce>
                 <div className="projectCard_holder">
                     <Zoom right delay={500}>
-
                         {
                             this.state.projects.map((project, index) => {
                                 return (
                                     <div key={project.name}>
                                         <ProjectCard
                                             name={project.name}
-                                            image={require(`../images/projects/${project.image}.png`)}
+                                            image={project.image}
                                             link={project.link}
                                             text={project.text}
                                             click={
@@ -110,27 +104,23 @@ class Porfolio extends Component {
                                             }
                                         />
                                     </div>
-
                                 )
                             })
-
                         }
 
                     </Zoom>
                 </div>
                 <Zoom delay={500}>
                     <a href="#home" className="seeMore">
-                        <p> See More </p>  <FontAwesomeIcon style={{transform: "rotateX(180deg)"}} icon={faArrowAltCircleDown} />
+                        <p> See More </p>  <FontAwesomeIcon style={{ transform: "rotateX(180deg)" }} icon={faArrowAltCircleDown} />
                     </a>
                 </Zoom>
-                    <div style={{position: "fixed", width: "60%", left: "50%", zIndex: "9000"}}>
-                    { this.displayframe()}
-                    </div>
-                    {console.log("portfolio is render")}
-
+                <div style={{ position: "fixed", width: "60%", left: "50%", zIndex: "9000" }}>
+                    {this.displayframe()}
+                </div>
             </div>
         );
     }
 };
 
-export default Porfolio;
+export default Portfolio;
