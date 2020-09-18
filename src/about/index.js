@@ -31,7 +31,7 @@ const About = (props) => {
                         title = "Skills"
                         icon = {faTools}
                         text = "I am currently focusing on those tools listed below to build the websites.
-                         Those tools are currently among of those that the web development industry is asking for. 
+                         Those tools are currently among of those that the web development industry is asking for, and they are the tools that can take your website to the next level. 
                          If you do need a website 
                         they are the tools that I will use to build your website."
                         brands={Allbrands}
