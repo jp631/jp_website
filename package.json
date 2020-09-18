@@ -3,6 +3,7 @@
   "version": "^0.0.1",
   "private": true,
   "dependencies": {
+    "@aws-amplify/cli": "^4.29.2",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",

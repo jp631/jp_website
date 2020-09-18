@@ -44,7 +44,7 @@ class Home extends Component {
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt="Jerry Prophete"
                                 title="jerry prophete"
-                                src={require(`../images/logo/man.webp`)}
+                                src={require(`../images/logo/man.jpg`)}
 
                             />
                             </a>

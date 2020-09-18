@@ -18,7 +18,7 @@ class Contact extends Component {
                                     ${require(`../images/logo/myPictStading.webp`)}, 1000w`}
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt="jerry prophete"
-                                src={require(`../images/logo/myPictStading_medium.webp`)}
+                                src={require(`../images/logo/myPictStading_medium.jpg`)}
 
                             />
                     </div>

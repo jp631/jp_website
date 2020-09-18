@@ -188,7 +188,7 @@ export const ProjectCard = (props) => {
                                     ${require(`../images/projects/${props.image}_medium.webp`)}, 1000w`}
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt={props.name}
-                                src={require(`../images/projects/${props.image}_medium.webp`)}
+                                src={require(`../images/projects/${props.image}_medium.jpg`)}
 
                             />
 
@@ -235,7 +235,14 @@ export const Poster = (props) => {
                 boxShadow: (props.isMobile) ? props.shadow : ""
             }}>
             <a href="#blog">
-                <img alt={"this"} src={postImage} />
+                <img srcSet={`
+                                    ${require(`../images/blog/blog.webp`)} 100w`}
+                                sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
+                                alt="jerry prophete"
+                                src={require(`../images/blog/blog.jpg`)}
+
+                            />
+
                 <h2 className="post_title">Internet <span>of Today</span></h2>
                 <p className="post_date"> feb - 12 - 2020</p>
                 <p className="latest_post">latest</p>

@@ -111,7 +111,6 @@ class App extends Component {
     return (
       <div className="app">
             <ErrorBoundary>
-              <Logo />
               <Suspense fallback={<LoaderSpinner />}>
                 <Home />
                 <About appState={this.state.trackPage} />
@@ -127,6 +126,10 @@ class App extends Component {
                   <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
                 </div>
               </Suspense>
+
+              <Suspense>
+                <Logo />
+                </Suspense>
               </Suspense>
             </ErrorBoundary>
       </div>
