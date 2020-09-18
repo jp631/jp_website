@@ -19,10 +19,9 @@ const About = (props) => {
                    <ParagraphBlock 
                         title = "About Me"
                         icon = {faUser}
-                        text = "
-                            I am  Jerry Prophete, the web developer whom you have been looking for. 
+                        text = "I am  Jerry Prophete, the web developer whom you have been looking for. 
                             I have worked on many different projects, which have given me the 
-                            experience that can solve your website problems."
+                            experience that can stake your website to the next level."
                    />
                 </div>
                  </Zoom>
