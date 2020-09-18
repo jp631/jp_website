@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { InputField, Buttons, SocialLogos } from "../misc";
-import myPictStading from "../images/logo/myPictStading_small.jpg";
+
 import MessageIcon from '@material-ui/icons/Message';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import "./contact.scss";
@@ -12,7 +12,15 @@ class Contact extends Component {
                 <h1 className="title">Contact</h1>
                 <div className="contact_profile">
                     <div className="picture_holder">
-                        <img src={myPictStading} alt="me" />
+                        <img srcSet={`
+                                    ${require(`../images/logo/myPictStading_small.webp`)} 100w,
+                                    ${require(`../images/logo/myPictStading_medium.webp`)} 500w,
+                                    ${require(`../images/logo/myPictStading.webp`)}, 1000w`}
+                                sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
+                                alt="jerry prophete"
+                                src={require(`../images/logo/myPictStading_medium.webp`)}
+
+                            />
                     </div>
                     <div className="socialLogos_holder">
                         <SocialLogos show={true} fontSize="3rem" />
@@ -31,7 +39,8 @@ class Contact extends Component {
                         <InputField id="contact_firstName" type="text" title="First Name" label="First Name" />
                         <InputField id="contact_lastName" type="text" title="Last Name" label="Last Name" />
                         <InputField id="contact_email" type="email" title="email" label="Email" />
-                        <textarea placeholder="text..." style={{ border: "none", backgroundColor: "var(--second_color)", borderRadius: ".3rem", marginBottom: "2rem", width: "100%", height: "20rem" }}>
+                        <label className="textAreaLabel" for="thattext">Message:</label>
+                        <textarea id="thattext" placeholder="text..." style={{ border: "none", backgroundColor: "var(--second_color)", borderRadius: ".3rem", marginBottom: "2rem", width: "100%", height: "20rem" }}>
                         </textarea>
                         <div className="btn">
                             <Buttons backColor="var(--second_color)" color="var(--fifth_color)" type="submit" textSize="2.5rem" text="let's us talk" width="75%" height="4rem" />

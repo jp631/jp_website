@@ -39,12 +39,12 @@ class Home extends Component {
                         <div className="image">
                             <a href="www.jerryprophete.com" alt="jerry prophete">
                                 <img srcSet={`
-                                    ${require(`../images/logo/man_small.jpg`)} 250w,
-                                    ${require(`../images/logo/man.jpg`)} 500w`}
+                                    ${require(`../images/logo/man_small.webp`)} 250w,
+                                    ${require(`../images/logo/man.webp`)} 500w`}
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt="Jerry Prophete"
                                 title="jerry prophete"
-                                src={require(`../images/logo/man.jpg`)}
+                                src={require(`../images/logo/man.webp`)}
 
                             />
                             </a>

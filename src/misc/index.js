@@ -183,12 +183,12 @@ export const ProjectCard = (props) => {
                             {/* <img src={props.smallImage} alt={props.name} title={props.name} /> */}
 
                             <img srcSet={`
-                                    ${require(`../images/projects/${props.image}_small.jpg`)} 250w,
-                                    ${require(`../images/projects/${props.image}_medium.jpg`)} 500w,
-                                    ${require(`../images/projects/${props.image}_medium.jpg`)}, 1000w`}
+                                    ${require(`../images/projects/${props.image}_small.webp`)} 250w,
+                                    ${require(`../images/projects/${props.image}_medium.webp`)} 500w,
+                                    ${require(`../images/projects/${props.image}_medium.webp`)}, 1000w`}
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt={props.name}
-                                src={require(`../images/projects/${props.image}_medium.jpg`)}
+                                src={require(`../images/projects/${props.image}_medium.webp`)}
 
                             />
 

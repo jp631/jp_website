@@ -81,6 +81,20 @@
                 transition: none;
             }
 
+
+            h1 {
+                position: absolute;
+                top: 0rem;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                background-color: var(--second_color);
+                border-radius: 0.5rem;
+                z-index: 2;
+                color: var(--fifth_color);
+                font-size: 2.5rem;
+            }
+
             ul {
                 padding: 2rem;
                 overflow-y: scroll;
@@ -89,18 +103,6 @@
                 width: 22rem;
                 padding-top: 3rem;
                 transition: all 0.4s;
-
-                h4 {
-                    position: absolute;
-                    top: 0rem;
-                    left: 0;
-                    width: 100%;
-                    text-align: center;
-                    background-color: var(--second_color);
-                    border-radius: 0.5rem;
-                    z-index: 2;
-                    color: var(--fifth_color);
-                }
             }
 
             li {
@@ -117,7 +119,7 @@
                 border-color: var(--fifth_color);
                 margin: 1rem 0;
                 &:first-child {
-                    background-color: red;
+                   margin-top: 2rem;
                 }
 
                 &::before {

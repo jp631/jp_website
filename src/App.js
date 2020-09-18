@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       device: window.screenTop,
       isMobile: false,
+      displayMenu : false,
       scroll_position: window.scrollY,
       trackPage: "home",
     }
@@ -27,6 +28,14 @@ class App extends Component {
     this.setState({
       scroll_position: window.scrollY,
     })
+  }
+
+  reloadMenu = ()=>{
+    setTimeout(() => {
+      this.setState({
+        displayMenu: false
+      })
+    }, 6000);
   }
 
   checkTrackPage = () => {
@@ -52,8 +61,7 @@ class App extends Component {
       this.setState({
         device: document.querySelector(".app"),
       });
-      this.checkIfMobile();
-      
+      this.checkIfMobile();      
     }
 
     window.onresize = () => {
@@ -96,6 +104,9 @@ class App extends Component {
     const Contact = React.lazy(() => import('./contact'));
     const Footer = React.lazy(() => import('./footer'));
 
+      window.onload = ()=>{
+        this.reloadMenu();
+      }
 
     return (
       <div className="app">
@@ -108,10 +119,15 @@ class App extends Component {
                 <Blog mobileState={this.state.isMobile} />
                 <Contact />
                 <Footer />
-              </Suspense>
-               <div className="menu_container">
+
+                <Suspense>
+              <div className="menu_container" style={{
+                 dispkay: (this.state.displayMenu) ? "block" : "none"
+               }}>
                   <Menu isMobile={this.state.isMobile} scroll={this.state.scroll_position} />
                 </div>
+              </Suspense>
+              </Suspense>
             </ErrorBoundary>
       </div>
     );

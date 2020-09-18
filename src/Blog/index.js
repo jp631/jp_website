@@ -75,8 +75,8 @@ class Blog extends Component {
                         left: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "0rem" : "",
                         opacity: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "1" : ""
                     }}>
+                   <h1>Recent Blog Posts</h1>
                         <ul>
-                            <h4>Recent Blog Posts</h4>
                             {
                                 this.state.blog.map((article) => {
 

@@ -188,6 +188,17 @@
         }
 
         form {
+            .textAreaLabel{
+                font-size: 2rem;
+                margin-top: -2rem;
+                opacity: .5;
+            }
+
+            textarea:hover .textAreaLabel{
+                color: red;
+            }
+            textarea {
+            }
             @media screen and (min-width: 500px) {
                 width: 40rem;
             }
