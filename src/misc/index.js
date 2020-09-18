@@ -9,15 +9,13 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Tilt from 'react-tilt'
 import Zoom from "react-reveal/Zoom";
 import logo from "../images/logo/jpimprovelogo.svg";
-import postImage from "../images/blog/blog.jpg";
-
 
 import "./style.scss";
 
 export const Logo = (props) => {
     return (
         <div className="logo">
-           <a href="/"> <img src={logo} alt="jerryprophete.com logo" /></a>
+            <a href="/"> <img src={logo} alt="jerryprophete.com logo" /></a>
         </div>
     );
 };
@@ -237,11 +235,11 @@ export const Poster = (props) => {
             <a href="#blog">
                 <img srcSet={`
                                     ${require(`../images/blog/blog.webp`)} 100w`}
-                                sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
-                                alt="jerry prophete"
-                                src={require(`../images/blog/blog.jpg`)}
+                    sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
+                    alt="jerry prophete"
+                    src={require(`../images/blog/blog.jpg`)}
 
-                            />
+                />
 
                 <h2 className="post_title">Internet <span>of Today</span></h2>
                 <p className="post_date"> feb - 12 - 2020</p>
