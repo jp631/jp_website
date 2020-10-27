@@ -33,7 +33,7 @@ const About = (props) => {
                         text = "I am currently focusing on those tools listed below to build any websites.
                          Those tools are currently among the tools that is prefered by the web development industry, 
                          and they are the tools that can take your website to the next level. 
-                         If you do need a website, they are the tools that I will use to build your website."
+                         If you do need a website, they are the tools that I will use to build your website. "
                         brands={Allbrands}
                    />
                 </div>
