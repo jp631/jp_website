@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  scroll-behavior: smooth;
+  // color variables
+  --first_color: #0d0d0d; //dark
+  --second_color: #edebf2; //white smoke
+  --third_color: #514bf2; // blue
+  --fifth_color: #05aff2; // light blue
+  --sixth_color: #f2b705; //yellow
+  --seventh_color: #f266db; //pink
+
+  // text variables
+  --text_paragraph: "Alegreya", serif;
+  --text_Headers: "Vollkorn", serif;
+  --texts: "Playfair Display", serif;
+
+  //font size for paragraph and headers
+  --all_h1: 5rem; // h1 font size
+  --all_paragraph: 3rem; // parapgrah font size
+  //box shadow
+  --primary_shadow: 0rem 0.3rem 0.8rem rgba(0, 0, 0, 0.7);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+
+  @media screen and (min-width: 1600px) {
+    font-size: 90%;
+  }
+
+  @media screen and (min-width: 2000px) {
+    font-size: 95%;
+  }
+
+  @media screen and (min-width: 2400px) {
+    font-size: 100%;
+  }
+}
+
+body {
+  background-color: var(--second_color);
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 1.1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: inset 0 0 5px var(--fifth_color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--sixth_color);
+    border-radius: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--fifth_color);
+    cursor: grab;
+  }
+
+  @media screen and (min-width: 2750px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

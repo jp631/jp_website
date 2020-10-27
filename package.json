@@ -1,14 +1,29 @@
 {
-  "name": "jp_website",
-  "version": "0.1.0",
+  "name": "JP_Website",
+  "version": "^0.0.1",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.8.6",
+    "firebase": "^7.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-particles-js": "^3.3.0",
+    "react-reveal": "^1.2.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "react-tilt": "^0.1.4",
+    "react-tsparticles": "^1.17.10",
+    "sass": "^1.26.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Jerry Prophete's portfolio",
+  "main": "index.js",
+  "repository": "https://github.com/jp631/jp_website.git",
+  "author": "jp631 <47936264+jp631@users.noreply.github.com>",
+  "license": "copyright protected",
+  "devDependencies": {}
 }
