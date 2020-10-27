@@ -23,7 +23,7 @@ const PopUpMessage = () => {
                 All you have to do is <span > <a href='#contact' onClick={showing}> contact </a> </span> me with one sentence of what you think of my website, and with a brief explanation of what you need for your website, and I will reach out to you. 
             </p>
 
-            <p><span className='alert'>click the button below to close this popup, and refresh the page to see it again</span></p>
+            <p><span className='alert'> click the button below to close this popup, and refresh the page to see it again</span></p>
 
             <p>Thanks again for visiting my website</p>
 
