@@ -19,9 +19,9 @@ const About = (props) => {
                    <ParagraphBlock 
                         title = "About Me"
                         icon = {faUser}
-                        text = "I am  Jerry Prophete, the web developer whom you have been looking for. 
+                        text = "My name is Jerry Prophete, the web developer whom you have been looking for. 
                             I have worked on many different projects, which have given me the 
-                            experience that can stake your website to the next level."
+                            experience that can take your website to the next level."
                    />
                 </div>
                  </Zoom>
@@ -30,10 +30,10 @@ const About = (props) => {
                    <ParagraphBlock 
                         title = "Skills"
                         icon = {faTools}
-                        text = "I am currently focusing on those tools listed below to build the websites.
-                         Those tools are currently among of those that the web development industry is asking for, and they are the tools that can take your website to the next level. 
-                         If you do need a website 
-                        they are the tools that I will use to build your website."
+                        text = "I am currently focusing on those tools listed below to build any websites.
+                         Those tools are currently among the tools that is prefered by the web development industry, 
+                         and they are the tools that can take your website to the next level. 
+                         If you do need a website, they are the tools that I will use to build your website."
                         brands={Allbrands}
                    />
                 </div>

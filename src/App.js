@@ -4,6 +4,14 @@ import { Logo, LoaderSpinner } from "./misc";
 import "./App.scss";
 import ErrorBoundary from "./ErrorHandler"
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 class App extends Component {
   constructor() {
     super();
@@ -97,12 +105,16 @@ class App extends Component {
 
 
   render() {
+    const PopUpMessage = React.lazy(() => import('./popUpMessage'));
     const Home = React.lazy(() => import('./home'));
     const About = React.lazy(() => import('./about'));
     const Portfolio = React.lazy(() => import('./portfolio'));
     const Blog = React.lazy(() => import('./Blog'));
     const Contact = React.lazy(() => import('./contact'));
     const Footer = React.lazy(() => import('./footer'));
+
+    const ArticlePage = React.lazy(() => import('./Blog/articlePage'));
+
 
       window.onload = ()=>{
         this.reloadMenu();
@@ -112,12 +124,23 @@ class App extends Component {
       <div className="app">
             <ErrorBoundary>
               <Suspense fallback={<LoaderSpinner />}>
-                <Home />
+                <Router>
+                <Switch>
+                  <Route path='/'>
+                  <Home />
                 <About appState={this.state.trackPage} />
                 <Portfolio />
                 <Blog mobileState={this.state.isMobile} />
                 <Contact />
                 <Footer />
+                  </Route>
+
+                  <Route exact path='/blog' >
+                      {/* <ArticlePage /> */}
+                  </Route> 
+                </Switch>
+                </Router>
+                <PopUpMessage />
 
                 <Suspense>
               <div className="menu_container" style={{

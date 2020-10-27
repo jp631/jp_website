@@ -4,39 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import Bounce from "react-reveal/Bounce";
 import { Poster, Buttons, InputField } from "../misc";
-
+import { docRefBlog, docRefEmailLists, storage } from '../fireBase/firebase'
+import ArticlePage from './articlePage';
 
 class Blog extends Component {
     constructor() {
         super()
         this.state = {
             arrowPushMenu: false,
-            blog: [
-                {
-                    title: "The earth and everyone living in it",
-                    image: "",
-                    date: "sept 12, 2020",
-                    text: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
-                },
-                {
-                    title: "jimbo in lorem",
-                    image: "",
-                    date: "Jan 12, 2021",
-                    text: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
-                },
-                {
-                    title: "Jumbo this is just random",
-                    image: "",
-                    date: "March 12, 2020",
-                    text: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
-                },
-                {
-                    title: "The 7 and rainbow",
-                    image: "",
-                    date: "Jan 12, 2021",
-                    text: "ok me is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's d standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. "
-                }
-            ]
+            email: '',
+            // title: '',
+            theImage:'',
+            allArticles:[],
+            recentArticle: {},
         }
     }
 
@@ -61,24 +41,85 @@ class Blog extends Component {
 
     }
 
+    UNSAFE_componentWillMount(){
+        storage.child('blogPic/comingSoon.jpg').getDownloadURL().then( url => {
+            this.setState({
+                theImage: url
+            })
+        }) 
+
+       docRefBlog.limit(1).get().then( dataQuerry => {
+        dataQuerry.forEach( m => {
+               this.setState({
+                   recentArticle: m.data()
+               })
+           })
+       })
+
+
+       docRefBlog.get().then( dataQuerry => {
+           let arc = []
+            dataQuerry.forEach( m => {
+                arc.push(m.data())
+            })
+           this.setState({
+               allArticles: arc
+           })
+       })
+}
+
+    handleEmail = (e) => {
+        e.preventDefault();
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    subscribeEmail = (e) => {
+        e.preventDefault();
+
+        docRefEmailLists.doc(this.state.email).get().then(data => {
+            if (data.exists) {
+                alert('email is in there')
+            } else {
+                docRefEmailLists.doc(`${this.state.email}`).set({
+                    email: this.state.email,
+                }).then(() => {
+                    alert(`Thanks for signing!`)
+                    this.setState(
+                       { email: ''}
+                    )
+                })
+                    .catch(error => {
+                        alert(error.message)
+                    })
+            }
+        })
+    }
+
     render() {
         return (
-            <div className="blog_container">
+            <div className="blog_container" id='blog'>
                 <Bounce delay={500}>
                     <h1 className="title"> Blog <span><FontAwesomeIcon icon={faRss} /></span></h1>
                 </Bounce>
                 <div className="contents_container">
                     <div className="poster_container">
-                        <Poster isMobile={true} shadow="0rem 5rem 10rem 0.5rem black" />
+                        <Poster 
+                        image = {this.state.theImage}
+                        title = {this.state.recentArticle.title}
+                        date = {(this.state.recentArticle.date) ? this.state.recentArticle.date.seconds : ''}
+                         isMobile={true} shadow="0rem 5rem 10rem 0.5rem black"
+                          />
                     </div>
                     <div className="article_list" style={{
                         left: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "0rem" : "",
                         opacity: (this.state.arrowPushMenu && (window.innerWidth < 1000)) ? "1" : ""
                     }}>
-                   <h1>Recent Blog Posts</h1>
+                        <h1>Recent Blog Posts</h1>
                         <ul>
                             {
-                                this.state.blog.map((article) => {
+                                this.state.allArticles.map((article) => {
 
                                     return (
                                         <li key={article.title}>{
@@ -112,8 +153,8 @@ class Blog extends Component {
                             Sign up to my email list to know about my latest blog post and to receive update from me.
                     </p>
 
-                        <form id="subscribe_form">
-                            <InputField type="email" label="Email" id="emailMe" title="email" />
+                        <form onSubmit={this.subscribeEmail} id="subscribe_form">
+                            <InputField type="email" onChange={this.handleEmail} label="Email" value={this.state.email} id="emailMe" title="email" />
                             <Buttons type="submit" backColor="var(--second_color)" text="Subscribe" width="12rem" height="4rem" textSize="2.5rem" position="relative" top="2rem" />
                         </form>
                     </div>

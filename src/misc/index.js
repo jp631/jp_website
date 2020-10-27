@@ -27,31 +27,31 @@ export const SocialLogos = (props) => {
             display: (props.show) ? "flex" : "none",
             fontSize: props.fontSize
         }}>
-            <a href="be.com" className={(props.facebook) ? "facebook" : "facebookNoAfter"}
+            <a target='blank' href="https://www.facebook.com/Jerry-Prophete-624792571212165/?view_public_for=624792571212165" className={(props.facebook) ? "facebook" : "facebookNoAfter"}
                 style={{
                     color: (Array.isArray(props.colors) && props.colors[0]) ? props.colors[0] : ""
                 }} >
                 <FontAwesomeIcon icon={faFacebookF} />
             </a>
-            <a href="be.com" className={(props.instagram) ? "instagram" : "instagramNoAfter"}
+            <a href="" className={(props.instagram) ? "instagram" : "instagramNoAfter"}
                 style={{
                     color: (Array.isArray(props.colors) && props.colors[1]) ? props.colors[1] : ""
                 }} >
                 <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="be.com" className={(props.twitter) ? "twitter" : "twitterNoAfter"}
+            <a href="" className={(props.twitter) ? "twitter" : "twitterNoAfter"}
                 style={{
                     color: (Array.isArray(props.colors) && props.colors[2]) ? props.colors[2] : ""
                 }} >
                 <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="be.com" className={(props.youtube) ? "youtube" : "youtubeNoAfter"}
+            <a href="" className={(props.youtube) ? "youtube" : "youtubeNoAfter"}
                 style={{
                     color: (Array.isArray(props.colors) && props.colors[3]) ? props.colors[3] : ""
                 }} >
                 <FontAwesomeIcon icon={faYoutube} />
             </a>
-            <a href="be.com" className={(props.linkedIn) ? "linkedIn" : "linkedInNoAfter"}
+            <a target='_blank' href="https://www.linkedin.com/in/jerry-prophete-9899b1113/" className={(props.linkedIn) ? "linkedIn" : "linkedInNoAfter"}
                 style={{
                     color: (Array.isArray(props.colors) && props.colors[4]) ? props.colors[4] : ""
                 }} >
@@ -73,7 +73,7 @@ export const Buttons = (props) => {
                     width: (props.width) ? props.width : "25rem",
                     height: (props.height) ? props.height : "auto"
                 }}>
-            <button type={props.type} title={props.link} onClick={props.click} style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
+            <button value={props.type} type={props.type} title={props.link} onClick={props.click} style={{ fontSize: (props.textSize) ? props.textSize : "5rem" }}>
                 {props.text}
             </button>
         </div>
@@ -234,19 +234,19 @@ export const Poster = (props) => {
             }}>
             <a href="#blog">
                 <img srcSet={`
-                                    ${require(`../images/blog/blog.webp`)} 100w`}
+                                    ${props.image} 100w`}
                     sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                     alt="jerry prophete"
                     src={require(`../images/blog/blog.jpg`)}
 
                 />
-
-                <h2 className="post_title">Internet <span>of Today</span></h2>
-                <p className="post_date"> feb - 12 - 2020</p>
+        
+                <h2 className="post_title">{props.title}</h2>
+                <p className="post_date">{props.date}</p>
                 <p className="latest_post">latest</p>
             </a>
 
-
+{/* <span>of Today</span> */}
         </div>
     )
 }
@@ -256,7 +256,8 @@ export class InputField extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.id
+            id: props.id,
+            fieldValue: ''
         }
     }
 
@@ -296,7 +297,7 @@ export class InputField extends React.Component {
         return (
             <div className="labelAndInput">
                 <div className="icon">{this.typeOfIcon}</div>
-                <input required id={this.props.id} type={this.props.type.toLowerCase()} title={this.props.title} />
+                <input  required id={this.props.id} value={this.props.value} type={this.props.type.toLowerCase()} title={this.props.title} onChange={this.props.onChange}/>
                 <label htmlFor={this.props.id} id={`label_${this.props.id}`}>{this.props.label}</label>
             </div>
         );

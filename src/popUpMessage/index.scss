@@ -1,0 +1,63 @@
+.pop_message_container {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 90000;
+    background-color: whitesmoke;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
+    overflow-y: scroll;
+
+    h1{
+        padding-top: 3rem;
+        font-size: 2rem;
+    }
+
+        .alert{
+            color: orangered;
+        }
+
+        .emphasis {
+            font-size: 2.3rem;
+            color: var(--fifth_color);
+            font-weight: bold;
+        }
+    
+
+    p{
+        width: 40%;
+        margin: 1rem 5rem;
+        font-size: 2rem;
+        line-height: 3rem;
+
+        @media screen and (max-width: 1000px) {
+            width: 80%;
+
+        }
+    }
+
+    .okButton{
+        width: 15rem;
+        height: 15rem;
+        margin: 5rem;
+        font-size: 3rem;
+        color: green;
+        border: .1rem solid var(--sixth_color);
+        cursor: pointer;
+        border-radius: .5rem;
+        transition: all .2s;
+        outline: none;
+
+        &:hover{
+            box-shadow: var(--primary_shadow);
+            transform: translateY(-.5rem) scaleX(1.1);
+            color: darkgreen;
+
+        }
+    }
+}

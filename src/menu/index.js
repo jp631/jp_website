@@ -4,6 +4,11 @@ import { faHome, faUser, faBriefcase, faIdCard, faRss } from '@fortawesome/free-
 import { ColoredCircle } from "../misc";
 import "./index.scss";
 import Roll from "react-reveal/Roll";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+  } from "react-router-dom";
 
 
 class Menu extends Component {
@@ -103,7 +108,7 @@ class Menu extends Component {
     render() {
         const { isMobileMenuVisible, isMobile, style, scrollOn } = this.state;
         return (
-            <>
+            <Router>
                 <menu className={`menu ${(isMobile || (!isMobile && scrollOn)) ? style.mobileStyle.menu : style.desktopStyle.menu}`}
                     style={{
                         width: "15rem",
@@ -124,7 +129,7 @@ class Menu extends Component {
                         <a href="#portfolio" className="menuIcons" onClick={this.closeMobileMenu}>
                             <FontAwesomeIcon icon={faBriefcase} />
                         </a>
-                        <a href="#blog" className="menuIcons" onClick={this.closeMobileMenu}>
+                        <a href='#blog' className="menuIcons" onClick={this.closeMobileMenu}>
                             <FontAwesomeIcon icon={faRss} />
                         </a>
                         <a href="#contact" className="menuIcons" onClick={this.closeMobileMenu}>
@@ -144,7 +149,7 @@ class Menu extends Component {
 
                     </div>
                 </div>
-            </>
+            </Router>
         );
     }
 }

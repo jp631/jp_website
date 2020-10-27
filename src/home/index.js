@@ -14,6 +14,10 @@ class Home extends Component {
         }
     }
 
+    scroll = ()=>{
+        window.location.href='#contact'
+    }
+
     checkSize = () => {
         this.setState({
             theWidth: window.innerWidth
@@ -39,12 +43,12 @@ class Home extends Component {
                         <div className="image">
                             <a href="www.jerryprophete.com" alt="jerry prophete">
                                 <img srcSet={`
-                                    ${require(`../images/logo/man_small.webp`)} 250w,
-                                    ${require(`../images/logo/man.webp`)} 500w`}
+                                    ${require(`../images/logo/jpProfile.jpg`)} 250w,
+                                    ${require(`../images/logo/jpProfile.jpg`)} 500w`}
                                 sizes="(max-width: 900px) 100vw, (max-width: 600px) 30vw, 300px"
                                 alt="Jerry Prophete"
                                 title="jerry prophete"
-                                src={require(`../images/logo/man.jpg`)}
+                                src={require(`../images/logo/jpProfile.jpg`)}
 
                             />
                             </a>
@@ -71,7 +75,8 @@ class Home extends Component {
                             backColor={(this.state.theWidth >= 1000) ? "var(--second_color)" : "var(--sixth_color)"}
                             text="Hire ME"
                             color="var(--first_color)"
-                            link="b.com"
+                            link=""
+                            click={this.scroll}
                         />
                     </div>
 
